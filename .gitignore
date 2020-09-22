@@ -1,0 +1,12 @@
+vendor/
+composer.lock
+.DS_Store
+build
+test.php
+.serenata
+.idea
+tests/temp
+phpunit.xml
+.env
+.phpunit.result.cache
+.php_cs.cache
