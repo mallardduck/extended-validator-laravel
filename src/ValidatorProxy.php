@@ -23,6 +23,9 @@ class ValidatorProxy
         return new self($validator);
     }
 
+    // TODO: Consider making a __call() to make this a real proxy class.
+    // TODO: Add tests to cover all the duplicated code.
+
     /**
      * Get the value of a given attribute.
      *

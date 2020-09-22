@@ -9,7 +9,6 @@ use Illuminate\Validation\Validator;
 class OpinionatedValidatorServiceProvider extends ServiceProvider
 {
 
-
     /**
      * Register any application services.
      *
@@ -27,7 +26,7 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // TODO: Abstract all the things here to a cleaner and more DRY form.
         $baseValidator = app('validator');
         // Add UnfilledIf rule
         $baseValidator->extendDependent(
@@ -49,6 +48,7 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
                 return true;
             }
         );
+        // TODO: See about hijacking the internal replacers.
         $baseValidator->replacer(
             'unfilled_if',
             function (
@@ -86,7 +86,7 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
                 return true;
             }
         );
-
+        // TODO: See about hijacking the internal replacers.
         $baseValidator->replacer(
             'unfilled_with',
             function (
