@@ -39,7 +39,9 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
             ) {
                 $validator->requireParameterCount(1, $parameters, 'unfilled_if');
 
-                [$values, $other] = $validator->prepareValuesAndOther($parameters);
+                $validatorProxy = ValidatorProxy::setValidator($validator);
+
+                [$values, $other] = $validatorProxy->prepareValuesAndOther($parameters);
 
                 if (in_array($other, $values)) {
                     return ! $validator->validateRequired($attribute, $value);
