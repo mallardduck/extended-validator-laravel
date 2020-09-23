@@ -1,9 +1,9 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator\Tests;
+namespace MallardDuck\UnfilledValidator\Tests;
 
 use Illuminate\Validation\Factory;
-use MallardDuck\OpinionatedValidator\OpinionatedValidatorServiceProvider;
+use MallardDuck\UnfilledValidator\UnfilledValidatorServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 abstract class BaseTest extends TestCase
@@ -18,7 +18,7 @@ abstract class BaseTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            OpinionatedValidatorServiceProvider::class
+            UnfilledValidatorServiceProvider::class
         ];
     }
 

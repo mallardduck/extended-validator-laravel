@@ -1,15 +1,11 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator;
+namespace MallardDuck\UnfilledValidator;
 
 use Illuminate\Support\Str;
-use MallardDuck\OpinionatedValidator\Rules\{
-    UnfilledIf,
-    UnfilledWith,
-    UnfilledWithAll,
-};
+use MallardDuck\UnfilledValidator\Rules\{UnfilledIf, UnfilledWith, UnfilledWithAll,};
 
-class OpinionatedRuleManager
+class RuleManager
 {
     protected static $rules = [
         // Add regular rules...

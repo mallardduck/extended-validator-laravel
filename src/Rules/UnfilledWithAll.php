@@ -1,10 +1,10 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator\Rules;
+namespace MallardDuck\UnfilledValidator\Rules;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
-use MallardDuck\OpinionatedValidator\ValidatorProxy;
+use MallardDuck\UnfilledValidator\ValidatorProxy;
 
 class UnfilledWithAll extends BaseRule
 {

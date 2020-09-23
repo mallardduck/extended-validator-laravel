@@ -1,6 +1,6 @@
 {
-    "name": "mallardduck/opinionated-validator-laravel",
-    "description": "An extension to Laravel's Validator class that provides some additional opinionated validation rules.",
+    "name": "mallardduck/unfilled-validator-laravel",
+    "description": "An extension to Laravel's Validator class that provides some additional unfilled validation rules.",
     "authors": [
         {
             "name": "MallardDuck",
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MallardDuck\\OpinionatedValidator\\": "src/"
+            "MallardDuck\\UnfilledValidator\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MallardDuck\\OpinionatedValidator\\Tests\\": "tests"
+            "MallardDuck\\UnfilledValidator\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MallardDuck\\OpinionatedValidator\\OpinionatedValidatorServiceProvider"
+                "MallardDuck\\UnfilledValidator\\UnfilledValidatorServiceProvider"
             ]
         }
     }

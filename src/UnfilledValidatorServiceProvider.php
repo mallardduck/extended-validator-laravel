@@ -1,11 +1,11 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator;
+namespace MallardDuck\UnfilledValidator;
 
-use Illuminate\Validation\Factory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Factory;
 
-class OpinionatedValidatorServiceProvider extends ServiceProvider
+class UnfilledValidatorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -16,7 +16,7 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
     {
         /** @var Factory $baseValidator */
         $baseValidator = app('validator');
-        foreach (OpinionatedRuleManager::allRules() as $ruleType => $rules) {
+        foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
                 $rule = new $rule;
                 if ('rules' === $ruleType) {

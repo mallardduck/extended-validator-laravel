@@ -1,16 +1,15 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator\Tests;
+namespace MallardDuck\UnfilledValidator\Tests;
 
-use Illuminate\Validation\Factory;
-use MallardDuck\OpinionatedValidator\OpinionatedRuleManager;
+use MallardDuck\UnfilledValidator\RuleManager;
 
 class ExtendedValidatorTest extends BaseTest
 {
     public function testValidatorHasBeenExtended()
     {
         $validatorExtensions = $this->getValidator()->make([],[])->extensions;
-        $ourRules = OpinionatedRuleManager::allRuleNames();
+        $ourRules = RuleManager::allRuleNames();
         foreach ($ourRules as $key => $ruleName) {
             $this->assertArrayHasKey($ruleName, $validatorExtensions);
         }
