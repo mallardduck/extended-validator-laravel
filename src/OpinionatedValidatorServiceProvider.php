@@ -4,6 +4,7 @@ namespace MallardDuck\OpinionatedValidator;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Factory;
 use Illuminate\Validation\Validator;
 
 class OpinionatedValidatorServiceProvider extends ServiceProvider
@@ -26,81 +27,22 @@ class OpinionatedValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // TODO: Abstract all the things here to a cleaner and more DRY form.
+        /** @var Factory $baseValidator */
         $baseValidator = app('validator');
-        // Add UnfilledIf rule
-        $baseValidator->extendDependent(
-            'unfilled_if',
-            function (
-                string $attribute,
-                $value,
-                $parameters,
-                Validator $validator
-            ) {
-                $validator->requireParameterCount(1, $parameters, 'unfilled_if');
-
-                $validatorProxy = ValidatorProxy::setValidator($validator);
-
-                [$values, $other] = $validatorProxy->prepareValuesAndOther($parameters);
-
-                if (in_array($other, $values)) {
-                    return ! $validator->validateRequired($attribute, $value);
+        foreach (OpinionatedRuleManager::allRules() as $ruleType => $rules) {
+            foreach ($rules as $key => $rule) {
+                $rule = new $rule;
+                if ('rules' === $ruleType) {
+                    $baseValidator->extend($rule->name, $rule->callback);
                 }
-
-                return true;
-            }
-        );
-        // TODO: See about hijacking the internal replacers.
-        $baseValidator->replacer(
-            'unfilled_if',
-            function (
-                $stringTemplate,
-                $currentField,
-                $rule,
-                $ruleArgs,
-                $validator
-            ) {
-                [$other, $value] = $ruleArgs;
-                $results = Str::replaceFirst(':other', $other, $stringTemplate);
-                $results = Str::replaceFirst(':value', $value, $results);
-
-                return $results;
-            }
-        );
-
-        // Add UnfilledWith rule
-        $baseValidator->extendDependent(
-            ($ruleName = 'unfilled_with'),
-            static function (
-                string $attribute,
-                $value,
-                $parameters,
-                Validator $validator
-            ) use ($ruleName) {
-                $validator->requireParameterCount(1, $parameters, $ruleName);
-
-                $validatorProxy = ValidatorProxy::setValidator($validator);
-
-                if (! $validatorProxy->allFailingRequired($parameters)) {
-                    return false;
+                if ('implicit' === $ruleType) {
+                    $baseValidator->extendImplicit($rule->name, $rule->callback);
                 }
-
-                return true;
+                if ('dependent' === $ruleType) {
+                    $baseValidator->extendDependent($rule->name, $rule->callback);
+                }
+                $baseValidator->replacer($rule->name, $rule->resolver);
             }
-        );
-        // TODO: See about hijacking the internal replacers.
-        $baseValidator->replacer(
-            'unfilled_with',
-            function (
-                $stringTemplate,
-                $currentField,
-                $rule,
-                $ruleArgs,
-                $validator
-            ) {
-                $values = implode('/', $ruleArgs);
-                return Str::replaceFirst(':values', $values, $stringTemplate);
-            }
-        );
+        }
     }
 }
