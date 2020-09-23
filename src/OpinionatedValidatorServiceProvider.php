@@ -2,10 +2,8 @@
 
 namespace MallardDuck\OpinionatedValidator;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Factory;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\ServiceProvider;
 
 class OpinionatedValidatorServiceProvider extends ServiceProvider
 {

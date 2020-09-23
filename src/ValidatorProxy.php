@@ -17,32 +17,43 @@ class ValidatorProxy
     private function __construct(Validator $validator)
     {
         $this->validator = $validator;
-        // TODO: Add a DATA property and make it a magic accessor for the getData method on the real validator.
     }
 
+    /**
+     * @param Validator $validator
+     *
+     * @return static
+     */
     public static function setValidator(Validator $validator): self
     {
         return new self($validator);
     }
 
-    // TODO: Consider making a __call() to make this a real proxy class.
-    // TODO: Add tests to cover all the duplicated code.
+    /**
+     * @return array
+     */
+    private function getData(): array
+    {
+        return $this->validator->getData();
+    }
 
     /**
      * Get the value of a given attribute.
      *
      * @param  string  $attribute
+     *
      * @return mixed
      */
-    protected function getValue($attribute)
+    protected function getValue(string $attribute)
     {
-        return Arr::get($this->validator->getData(), $attribute);
+        return Arr::get($this->getData(), $attribute);
     }
 
     /**
      * Determine if all of the given attributes fail the required test.
      *
      * @param  array  $attributes
+     *
      * @return bool
      */
     public function allFailingRequired(array $attributes): bool
@@ -60,9 +71,10 @@ class ValidatorProxy
      * Determine if any of the given attributes fail the required test.
      *
      * @param  array  $attributes
+     *
      * @return bool
      */
-    public function anyFailingRequired(array $attributes)
+    public function anyFailingRequired(array $attributes): bool
     {
         foreach ($attributes as $key) {
             if (! $this->validator->validateRequired($key, $this->getValue($key))) {
@@ -77,11 +89,12 @@ class ValidatorProxy
      * Prepare the values and the other value for validation.
      *
      * @param  array  $parameters
+     *
      * @return array
      */
-    public function prepareValuesAndOther($parameters)
+    public function prepareValuesAndOther(array $parameters): array
     {
-        $other = Arr::get($this->validator->getData(), $parameters[0]);
+        $other = Arr::get($this->getData(), $parameters[0]);
 
         $values = array_slice($parameters, 1);
 
@@ -97,10 +110,11 @@ class ValidatorProxy
     /**
      * Convert the given values to boolean if they are string "true" / "false".
      *
-     * @param  array  $values
+     * @param array $values
+     *
      * @return array
      */
-    public function convertValuesToBoolean($values): array
+    public function convertValuesToBoolean(array $values): array
     {
         return array_map(static function ($value) {
             if ($value === 'true') {
@@ -118,10 +132,11 @@ class ValidatorProxy
     /**
      * Convert the given values to null if they are string "null".
      *
-     * @param  array  $values
+     * @param array $values
+     *
      * @return array
      */
-    public function convertValuesToNull($values): array
+    public function convertValuesToNull(array $values): array
     {
         return array_map(static function ($value) {
             return Str::lower($value) === 'null' ? null : $value;
