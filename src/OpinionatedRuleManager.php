@@ -3,9 +3,11 @@
 namespace MallardDuck\OpinionatedValidator;
 
 use Illuminate\Support\Str;
-use MallardDuck\OpinionatedValidator\Rules\UnfilledIf;
-use MallardDuck\OpinionatedValidator\Rules\UnfilledWith;
-use MallardDuck\OpinionatedValidator\Rules\UnfilledWithAll;
+use MallardDuck\OpinionatedValidator\Rules\{
+    UnfilledIf,
+    UnfilledWith,
+    UnfilledWithAll,
+};
 
 class OpinionatedRuleManager
 {
