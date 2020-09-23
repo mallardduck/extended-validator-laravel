@@ -8,7 +8,6 @@ use Orchestra\Testbench\TestCase;
 
 abstract class BaseTest extends TestCase
 {
-
     public function setUp(): void
     {
         parent::setUp();

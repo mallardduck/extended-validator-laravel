@@ -3,7 +3,9 @@
 namespace MallardDuck\UnfilledValidator;
 
 use Illuminate\Support\Str;
-use MallardDuck\UnfilledValidator\Rules\{UnfilledIf, UnfilledWith, UnfilledWithAll,};
+use MallardDuck\UnfilledValidator\Rules\UnfilledIf;
+use MallardDuck\UnfilledValidator\Rules\UnfilledWith;
+use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
 
 class RuleManager
 {
