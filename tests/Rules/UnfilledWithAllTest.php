@@ -6,7 +6,7 @@ use MallardDuck\OpinionatedValidator\Tests\BaseTest;
 
 class UnfilledWithAllTest extends BaseTest
 {
-    public function testValidateUnfilledWith()
+    public function testValidateUnfilledWithAllNameExample()
     {
         $basicUnfilledWithAll = [
             'name' => 'unfilled_with:first_name,last_name',

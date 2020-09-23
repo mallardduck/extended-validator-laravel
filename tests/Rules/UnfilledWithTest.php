@@ -6,7 +6,7 @@ use MallardDuck\OpinionatedValidator\Tests\BaseTest;
 
 class UnfilledWithTest extends BaseTest
 {
-    public function testValidateUnfilledWith()
+    public function testValidateUnfilledWithNameExample()
     {
         $v = $this->getValidator()->make(
             [],
