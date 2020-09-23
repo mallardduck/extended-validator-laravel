@@ -10,7 +10,7 @@ final class UnfilledIf extends BaseRule
 {
     public function __construct()
     {
-        $ruleName = Str::snake(explode('\\', __CLASS__)[3]);
+        $ruleName = $this->getRuleName(__CLASS__);
         parent::__construct(
             $ruleName,
             function (

@@ -2,6 +2,8 @@
 
 namespace MallardDuck\OpinionatedValidator\Rules;
 
+use Illuminate\Support\Str;
+
 abstract class BaseRule
 {
     /**
@@ -24,5 +26,15 @@ abstract class BaseRule
         $this->name = $name;
         $this->callback = $callback;
         $this->resolver = $resolver;
+    }
+
+    /**
+     * @param string $className
+     *
+     * @return string
+     */
+    protected function getRuleName(string $className): string
+    {
+        return Str::snake(explode('\\', $className)[3]);
     }
 }
