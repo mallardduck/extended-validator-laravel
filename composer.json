@@ -35,9 +35,9 @@
         "phpcbf":  "./vendor/bin/phpcs --standard=PSR12",
         "check-style": "@phpcs -p --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
         "fix-style": "@phpcbf -p --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "versions": "./vendor/bin/phpcs -p ./src/ ./tests/ --standard=PHPCompatibility --runtime-set testVersion 7.3",
         "semver": "php-semver-checker-git suggest --allow-detached -vvv --details --include-before=src --include-after=src",
-        "infect": "./vendor/bin/infection --threads=4 --configuration=./infection.json.dist",
-        "versions": "./vendor/bin/phpcs -p ./src/ ./tests/ --standard=PHPCompatibility --runtime-set testVersion 7.2"
+        "infect": "infection --threads=4 --configuration=./infection.json.dist"
     },
     "config": {
         "sort-packages": true
