@@ -8,7 +8,7 @@ class ExtendedValidatorTest extends BaseTest
 {
     public function testValidatorHasBeenExtended()
     {
-        $validatorExtensions = $this->getValidator()->make([],[])->extensions;
+        $validatorExtensions = $this->getValidator()->make([], [])->extensions;
         $ourRules = RuleManager::allRuleNames();
         foreach ($ourRules as $key => $ruleName) {
             $this->assertArrayHasKey($ruleName, $validatorExtensions);

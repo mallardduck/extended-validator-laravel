@@ -18,7 +18,7 @@ class UnfilledValidatorServiceProvider extends ServiceProvider
         $baseValidator = app('validator');
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
-                $rule = new $rule;
+                $rule = new $rule();
                 if ('rules' === $ruleType) {
                     $baseValidator->extend($rule->name, $rule->callback);
                 }

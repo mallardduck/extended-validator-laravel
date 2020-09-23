@@ -8,7 +8,6 @@ use Illuminate\Validation\Validator;
 
 class ValidatorProxy
 {
-
     /**
      * @var Validator
      */
@@ -160,5 +159,4 @@ class ValidatorProxy
             return Str::lower($value) === 'null' ? null : $value;
         }, $values);
     }
-
 }
