@@ -1,6 +1,8 @@
 <?php
 
-namespace MallardDuck\OpinionatedValidator\Tests;
+namespace MallardDuck\OpinionatedValidator\Tests\Rules;
+
+use MallardDuck\OpinionatedValidator\Tests\BaseTest;
 
 class UnfilledWithAllTest extends BaseTest
 {
