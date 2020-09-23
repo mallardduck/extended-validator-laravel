@@ -35,7 +35,17 @@ class UnfilledWithAll extends BaseRule
                 $ruleArgs,
                 $validator
             ) {
-                $values = implode('/', $ruleArgs);
+                $argCount = count($ruleArgs);
+                $values = '';
+                for ($i = 1; $i <= ($argCount); $i++) {
+                    $values .= $ruleArgs[$i-1];
+                    if (1 === ($argCount - $i)) {
+                        $values .= ' and ';
+                    } elseif (0 !== ($argCount - $i)) {
+                        $values .= ', ';
+                    }
+                }
+
                 return Str::replaceFirst(':values', $values, $stringTemplate);
             }
         );
