@@ -38,7 +38,7 @@ class UnfilledWithAll extends BaseRule
                 $argCount = count($ruleArgs);
                 $values = '';
                 for ($i = 1; $i <= ($argCount); $i++) {
-                    $values .= $ruleArgs[$i-1];
+                    $values .= $ruleArgs[$i - 1];
                     if (1 === ($argCount - $i)) {
                         $values .= ' and ';
                     } elseif (0 !== ($argCount - $i)) {
