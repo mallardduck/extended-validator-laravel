@@ -21,7 +21,7 @@ class UnfilledWithAll extends BaseRule
             ) use ($ruleName) {
                 $validator->requireParameterCount(2, $parameters, $ruleName);
 
-                $validatorProxy = ValidatorProxy::setValidator($validator);
+                $validatorProxy = ValidatorProxy::fromValidator($validator);
                 if ($validatorProxy->allRequired($parameters)) {
                     return false;
                 }

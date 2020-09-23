@@ -21,7 +21,7 @@ final class UnfilledIf extends BaseRule
             ) use ($ruleName) {
                 $validator->requireParameterCount(1, $parameters, $ruleName);
 
-                $validatorProxy = ValidatorProxy::setValidator($validator);
+                $validatorProxy = ValidatorProxy::fromValidator($validator);
 
                 [$values, $other] = $validatorProxy->prepareValuesAndOther($parameters);
 

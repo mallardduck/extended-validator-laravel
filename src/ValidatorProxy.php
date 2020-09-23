@@ -23,7 +23,7 @@ class ValidatorProxy
      *
      * @return static
      */
-    public static function setValidator(Validator $validator): self
+    public static function fromValidator(Validator $validator): self
     {
         return new self($validator);
     }

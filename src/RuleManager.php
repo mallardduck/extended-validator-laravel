@@ -31,7 +31,7 @@ class RuleManager
                 self::$rules,
                 self::$implicitRules,
                 self::$dependentRules,
-            ))->map(function ($value) {
+            ))->map(static function ($value) {
                 return Str::snake(explode('\\', $value)[3]);
             })->toArray();
         }
