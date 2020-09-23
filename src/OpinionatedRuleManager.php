@@ -2,8 +2,10 @@
 
 namespace MallardDuck\OpinionatedValidator;
 
+use Illuminate\Support\Str;
 use MallardDuck\OpinionatedValidator\Rules\UnfilledIf;
 use MallardDuck\OpinionatedValidator\Rules\UnfilledWith;
+use MallardDuck\OpinionatedValidator\Rules\UnfilledWithAll;
 
 class OpinionatedRuleManager
 {
@@ -18,7 +20,24 @@ class OpinionatedRuleManager
     protected static $dependentRules = [
         UnfilledIf::class,
         UnfilledWith::class,
+        UnfilledWithAll::class,
     ];
+
+    public static function allRuleNames(): array
+    {
+        static $allRules = null;
+        if (is_null($allRules)) {
+            $allRules = collect(array_merge(
+                self::$rules,
+                self::$implicitRules,
+                self::$dependentRules,
+            ))->map(function ($value) {
+                return Str::snake(explode('\\', $value)[3]);
+            })->toArray();
+        }
+
+        return $allRules;
+    }
 
     public static function allRules(): array
     {

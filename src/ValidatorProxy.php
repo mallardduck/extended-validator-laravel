@@ -50,6 +50,24 @@ class ValidatorProxy
     }
 
     /**
+     * Determine if all of the given attributes pass the required test.
+     *
+     * @param  array  $attributes
+     *
+     * @return bool
+     */
+    public function allRequired(array $attributes): bool
+    {
+        foreach ($attributes as $key) {
+            if (! $this->validator->validateRequired($key, $this->getValue($key))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Determine if all of the given attributes fail the required test.
      *
      * @param  array  $attributes
