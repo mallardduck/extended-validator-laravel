@@ -6,6 +6,10 @@ php:
   - 7.3
   - 7.4
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=9d5a0a0dc82513776f7a233a9175d4107966a67c8dd80a6fc86179f93d6dca25
+
 ## Cache composer
 cache:
   directories:
