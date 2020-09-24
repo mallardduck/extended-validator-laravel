@@ -19,14 +19,16 @@ class UnfilledValidatorServiceProvider extends ServiceProvider
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
                 $rule = new $rule();
-                if ('rules' === $ruleType) {
-                    $baseValidator->extend($rule->name, $rule->callback);
-                }
-                if ('implicit' === $ruleType) {
-                    $baseValidator->extendImplicit($rule->name, $rule->callback);
-                }
-                if ('dependent' === $ruleType) {
-                    $baseValidator->extendDependent($rule->name, $rule->callback);
+                switch ($ruleType) {
+                    case "rules":
+                        $baseValidator->extend($rule->name, $rule->callback);
+                        break;
+                    case "implicit":
+                        $baseValidator->extendImplicit($rule->name, $rule->callback);
+                        break;
+                    case "dependent":
+                        $baseValidator->extendDependent($rule->name, $rule->callback);
+                        break;
                 }
                 $baseValidator->replacer($rule->name, $rule->resolver);
             }
