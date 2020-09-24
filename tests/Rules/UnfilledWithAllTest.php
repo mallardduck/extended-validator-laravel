@@ -9,7 +9,7 @@ class UnfilledWithAllTest extends BaseTest
     public function testValidateUnfilledWithAllNameExample()
     {
         $basicUnfilledWithAll = [
-            'name' => 'unfilled_with:first_name,last_name',
+            'name' => 'unfilled_with_all:first_name,last_name',
             'first_name' => 'sometimes',
             'last_name' => 'sometimes'
         ];
@@ -37,7 +37,7 @@ class UnfilledWithAllTest extends BaseTest
             ],
             $basicUnfilledWithAll
         );
-        $this->assertTrue($v->fails());
+        $this->assertTrue($v->passes());
 
         $v = $this->getValidator()->make(
             [
@@ -51,6 +51,43 @@ class UnfilledWithAllTest extends BaseTest
 
         $v = $this->getValidator()->make(
             [
+                'first_name' => 'Richard',
+                'last_name' => 'Robert'
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+    }
+
+    public function testValidateUnfilledWithAllManyPartsExample()
+    {
+        $basicUnfilledWithAll = [
+            'name' => 'unfilled_with_all:first_name,middle_name,last_name',
+            'first_name' => 'sometimes',
+            'middle_name' => 'sometimes',
+            'last_name' => 'sometimes'
+        ];
+
+        $v = $this->getValidator()->make(
+            ['name' => 'Ricky Bobby'],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
+                'name' => 'Ricky Bobby',
+                'first_name' => 'Richard',
+                'middle_name' => 'Wallace',
+                'last_name' => 'Robertson'
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->fails());
+
+        $v = $this->getValidator()->make(
+            [
+                'name' => 'Ricky Bobby',
                 'first_name' => 'Richard',
                 'last_name' => 'Robert'
             ],

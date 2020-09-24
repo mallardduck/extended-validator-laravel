@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" beStrictAboutTestsThatDoNotTestAnything="false" bootstrap="tests/bootstrap.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnError="false" stopOnFailure="false" verbose="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false">
   <coverage processUncoveredFiles="true">
     <include>
       <directory suffix=".php">./src</directory>
@@ -7,6 +20,13 @@
     <exclude>
       <directory suffix=".blade.php">./src/</directory>
     </exclude>
+    <report>
+      <html outputDirectory="build/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+      <xml outputDirectory="build/xml-coverage"/>
+      <clover outputFile="build/clover.xml"/>
+      <text outputFile="build/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+      <php outputFile="build/coverage.php"/>
+    </report>
   </coverage>
   <testsuites>
     <testsuite name="Laravel Test Suite">
