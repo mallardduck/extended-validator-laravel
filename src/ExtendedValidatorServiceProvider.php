@@ -5,7 +5,7 @@ namespace MallardDuck\ExtendedValidator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Factory;
 
-class UnfilledValidatorServiceProvider extends ServiceProvider
+class ExtendedValidatorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

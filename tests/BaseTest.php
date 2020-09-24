@@ -3,7 +3,7 @@
 namespace MallardDuck\ExtendedValidator\Tests;
 
 use Illuminate\Validation\Factory;
-use MallardDuck\ExtendedValidator\UnfilledValidatorServiceProvider;
+use MallardDuck\ExtendedValidator\ExtendedValidatorServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 abstract class BaseTest extends TestCase
@@ -17,7 +17,7 @@ abstract class BaseTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            UnfilledValidatorServiceProvider::class
+            ExtendedValidatorServiceProvider::class
         ];
     }
 
