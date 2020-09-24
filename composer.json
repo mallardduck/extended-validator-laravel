@@ -1,6 +1,7 @@
 {
     "name": "mallardduck/extended-validator-laravel",
     "description": "An extension to Laravel's Validator class that provides some additional validation rules.",
+    "license": "MIT",
     "authors": [
         {
             "name": "MallardDuck",
