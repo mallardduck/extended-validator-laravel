@@ -4,6 +4,9 @@ namespace MallardDuck\UnfilledValidator;
 
 use Illuminate\Support\Str;
 use MallardDuck\UnfilledValidator\Rules\MacAddress;
+use MallardDuck\UnfilledValidator\Rules\PublicIp;
+use MallardDuck\UnfilledValidator\Rules\PublicIpv4;
+use MallardDuck\UnfilledValidator\Rules\PublicIpv6;
 use MallardDuck\UnfilledValidator\Rules\UnfilledIf;
 use MallardDuck\UnfilledValidator\Rules\UnfilledWith;
 use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
@@ -11,6 +14,9 @@ use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
 class RuleManager
 {
     protected static $rules = [
+        PublicIp::class,
+        PublicIpv4::class,
+        PublicIpv6::class,
         MacAddress::class,
     ];
 
