@@ -20,7 +20,7 @@ class PublicIpv6 extends BaseRule
                 return filter_var(
                     $value,
                     FILTER_VALIDATE_IP,
-                    FILTER_FLAG_IPV6|FILTER_FLAG_NO_RES_RANGE|FILTER_FLAG_NO_PRIV_RANGE
+                    FILTER_FLAG_IPV6 | FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE
                 ) !== false;
             },
             'The :attribute field must be a valid public IPv6 address.',
