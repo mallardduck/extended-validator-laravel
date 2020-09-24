@@ -1,10 +1,10 @@
 <?php
 
-namespace MallardDuck\UnfilledValidator\Rules;
+namespace MallardDuck\ExtendedValidator\Rules;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
-use MallardDuck\UnfilledValidator\ValidatorProxy;
+use MallardDuck\ExtendedValidator\ValidatorProxy;
 
 final class UnfilledIf extends BaseRule
 {

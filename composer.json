@@ -1,6 +1,6 @@
 {
-    "name": "mallardduck/unfilled-validator-laravel",
-    "description": "An extension to Laravel's Validator class that provides some additional unfilled validation rules.",
+    "name": "mallardduck/extended-validator-laravel",
+    "description": "An extension to Laravel's Validator class that provides some additional validation rules.",
     "authors": [
         {
             "name": "MallardDuck",
@@ -8,6 +8,7 @@
         }
     ],
     "require": {
+        "php": "^7.3",
         "illuminate/validation": "^8.0"
     },
     "require-dev": {
@@ -22,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MallardDuck\\UnfilledValidator\\": "src/"
+            "MallardDuck\\ExtendedValidator\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MallardDuck\\UnfilledValidator\\Tests\\": "tests"
+            "MallardDuck\\ExtendedValidator\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,7 +47,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MallardDuck\\UnfilledValidator\\UnfilledValidatorServiceProvider"
+                "MallardDuck\\ExtendedValidator\\ExtendedValidatorServiceProvider"
             ]
         }
     }

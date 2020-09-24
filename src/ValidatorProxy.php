@@ -1,6 +1,6 @@
 <?php
 
-namespace MallardDuck\UnfilledValidator;
+namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;

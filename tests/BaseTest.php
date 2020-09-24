@@ -1,9 +1,9 @@
 <?php
 
-namespace MallardDuck\UnfilledValidator\Tests;
+namespace MallardDuck\ExtendedValidator\Tests;
 
 use Illuminate\Validation\Factory;
-use MallardDuck\UnfilledValidator\UnfilledValidatorServiceProvider;
+use MallardDuck\ExtendedValidator\UnfilledValidatorServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 abstract class BaseTest extends TestCase

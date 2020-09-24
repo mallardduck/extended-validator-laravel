@@ -1,15 +1,15 @@
 <?php
 
-namespace MallardDuck\UnfilledValidator;
+namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\Str;
-use MallardDuck\UnfilledValidator\Rules\MacAddress;
-use MallardDuck\UnfilledValidator\Rules\PublicIp;
-use MallardDuck\UnfilledValidator\Rules\PublicIpv4;
-use MallardDuck\UnfilledValidator\Rules\PublicIpv6;
-use MallardDuck\UnfilledValidator\Rules\UnfilledIf;
-use MallardDuck\UnfilledValidator\Rules\UnfilledWith;
-use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
+use MallardDuck\ExtendedValidator\Rules\MacAddress;
+use MallardDuck\ExtendedValidator\Rules\PublicIp;
+use MallardDuck\ExtendedValidator\Rules\PublicIpv4;
+use MallardDuck\ExtendedValidator\Rules\PublicIpv6;
+use MallardDuck\ExtendedValidator\Rules\UnfilledIf;
+use MallardDuck\ExtendedValidator\Rules\UnfilledWith;
+use MallardDuck\ExtendedValidator\Rules\UnfilledWithAll;
 
 class RuleManager
 {
