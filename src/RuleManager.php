@@ -3,6 +3,7 @@
 namespace MallardDuck\UnfilledValidator;
 
 use Illuminate\Support\Str;
+use MallardDuck\UnfilledValidator\Rules\MacAddress;
 use MallardDuck\UnfilledValidator\Rules\UnfilledIf;
 use MallardDuck\UnfilledValidator\Rules\UnfilledWith;
 use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
@@ -10,7 +11,7 @@ use MallardDuck\UnfilledValidator\Rules\UnfilledWithAll;
 class RuleManager
 {
     protected static $rules = [
-        // Add regular rules...
+        MacAddress::class,
     ];
 
     protected static $implicitRules = [
