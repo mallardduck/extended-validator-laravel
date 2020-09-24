@@ -21,7 +21,7 @@ class PublicIp extends BaseRule
                     $value,
                     FILTER_VALIDATE_IP,
                     FILTER_FLAG_NO_RES_RANGE|FILTER_FLAG_NO_PRIV_RANGE
-                    ) !== false;
+                ) !== false;
             },
             'The :attribute field must be a valid public IP address.',
             null
