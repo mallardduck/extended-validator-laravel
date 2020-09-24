@@ -8,7 +8,7 @@ php:
 
 env:
   global:
-    - CC_TEST_REPORTER_ID=9d5a0a0dc82513776f7a233a9175d4107966a67c8dd80a6fc86179f93d6dca25
+    - CC_TEST_REPORTER_ID=edba059fd1aad50bddd3f1aa1192450bfbc0a187df3f7d017b3fa7b77fc15b32
 
 ## Cache composer
 cache:
