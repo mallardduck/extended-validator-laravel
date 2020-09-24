@@ -4,7 +4,7 @@ namespace MallardDuck\ExtendedValidator\Tests\Rules;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledIfTest extends BaseTest
+class UnfilledIfGeneralTest extends BaseTest
 {
     public function testValidateUnfilledIfShapeGeneratorExample()
     {

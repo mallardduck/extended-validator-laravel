@@ -85,24 +85,6 @@ class ValidatorProxy
     }
 
     /**
-     * Determine if any of the given attributes fail the required test.
-     *
-     * @param  array  $attributes
-     *
-     * @return bool
-     */
-    public function anyFailingRequired(array $attributes): bool
-    {
-        foreach ($attributes as $key) {
-            if (! $this->validator->validateRequired($key, $this->getValue($key))) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Prepare the values and the other value for validation.
      *
      * @param  array  $parameters
