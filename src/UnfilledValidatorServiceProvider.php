@@ -21,16 +21,18 @@ class UnfilledValidatorServiceProvider extends ServiceProvider
                 $rule = new $rule();
                 switch ($ruleType) {
                     case "rules":
-                        $baseValidator->extend($rule->name, $rule->callback);
+                        $baseValidator->extend($rule->name, $rule->callback, $rule->message);
                         break;
                     case "implicit":
-                        $baseValidator->extendImplicit($rule->name, $rule->callback);
+                        $baseValidator->extendImplicit($rule->name, $rule->callback, $rule->message);
                         break;
                     case "dependent":
-                        $baseValidator->extendDependent($rule->name, $rule->callback);
+                        $baseValidator->extendDependent($rule->name, $rule->callback, $rule->message);
                         break;
                 }
-                $baseValidator->replacer($rule->name, $rule->resolver);
+                if (null !== $rule->resolver) {
+                    $baseValidator->replacer($rule->name, $rule->resolver);
+                }
             }
         }
     }

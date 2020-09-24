@@ -28,6 +28,7 @@ class UnfilledWithAll extends BaseRule
 
                 return true;
             },
+            'The :attribute field must not be used when :values are present.',
             function (
                 $stringTemplate,
                 $currentField,

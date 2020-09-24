@@ -17,14 +17,20 @@ abstract class BaseRule
     public $callback;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var callable
      */
     public $resolver;
 
-    public function __construct(string $name, callable $callback, callable $resolver)
+    public function __construct(string $name, callable $callback, string $message, ?callable $resolver)
     {
         $this->name = $name;
         $this->callback = $callback;
+        $this->message = $message;
         $this->resolver = $resolver;
     }
 

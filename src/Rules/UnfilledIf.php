@@ -31,6 +31,7 @@ final class UnfilledIf extends BaseRule
 
                 return true;
             },
+            'The :attribute field must not be used when :other field is :value.',
             function (
                 $stringTemplate,
                 $currentField,
