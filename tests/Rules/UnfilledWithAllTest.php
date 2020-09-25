@@ -94,5 +94,15 @@ class UnfilledWithAllTest extends BaseTest
             $basicUnfilledWithAll
         );
         $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
+                'first_name' => 'Richard',
+                'middle_name' => 'Wallace',
+                'last_name' => 'Robertson'
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
     }
 }
