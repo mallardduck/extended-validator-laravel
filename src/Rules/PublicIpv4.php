@@ -13,10 +13,8 @@ class PublicIpv4 extends BaseRule
             $ruleName,
             function (
                 string $attribute,
-                $value,
-                $parameters,
-                Validator $validator
-            ) use ($ruleName) {
+                $value
+            ) {
                 return filter_var(
                     $value,
                     FILTER_VALIDATE_IP,

@@ -11,12 +11,10 @@ class MacAddress extends BaseRule
         $ruleName = $this->getRuleName(__CLASS__);
         parent::__construct(
             $ruleName,
-            function (
+            static function (
                 string $attribute,
-                $value,
-                $parameters,
-                Validator $validator
-            ) use ($ruleName) {
+                $value
+            ) {
                 return filter_var($value, FILTER_VALIDATE_MAC) !== false;
             },
             'The :attribute field must be a valid MAC address.',
