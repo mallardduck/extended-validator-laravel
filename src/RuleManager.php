@@ -3,6 +3,8 @@
 namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\Str;
+use MallardDuck\ExtendedValidator\Rules\HexColor;
+use MallardDuck\ExtendedValidator\Rules\HexColorWithAlpha;
 use MallardDuck\ExtendedValidator\Rules\MacAddress;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv4;
@@ -14,6 +16,8 @@ use MallardDuck\ExtendedValidator\Rules\UnfilledWithAll;
 class RuleManager
 {
     protected static $rules = [
+        HexColor::class,
+        HexColorWithAlpha::class,
         PublicIp::class,
         PublicIpv4::class,
         PublicIpv6::class,
