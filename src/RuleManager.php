@@ -25,7 +25,7 @@ class RuleManager
     ];
 
     protected static $implicitRules = [
-        // Add implicit rules...
+        UnfilledIf::class,
     ];
 
     protected static $dependentRules = [
@@ -44,7 +44,7 @@ class RuleManager
                 self::$dependentRules,
             ))->map(static function ($value) {
                 return Str::snake(explode('\\', $value)[3]);
-            })->toArray();
+            })->unique()->toArray();
         }
 
         return $allRules;
