@@ -10,7 +10,7 @@
 
 An extension to Laravel's Validator class that provides some additional validation rules.
 
-## Installatoin
+## Installation
 You can install the package via composer:
 
 ```
