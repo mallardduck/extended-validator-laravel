@@ -36,9 +36,9 @@ class RuleManager
 
     public static function allRuleNames(): array
     {
-        static $allRules = null;
-        if (is_null($allRules)) {
-            $allRules = collect(array_merge(
+        static $allRuleNames = null;
+        if (is_null($allRuleNames)) {
+            $allRuleNames = collect(array_merge(
                 self::$rules,
                 self::$implicitRules,
                 self::$dependentRules,
@@ -47,7 +47,7 @@ class RuleManager
             })->unique()->toArray();
         }
 
-        return $allRules;
+        return $allRuleNames;
     }
 
     public static function allRules(): array
