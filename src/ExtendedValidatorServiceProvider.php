@@ -30,8 +30,8 @@ class ExtendedValidatorServiceProvider extends ServiceProvider
                         $baseValidator->extendDependent($rule->name, $rule->callback, $rule->message);
                         break;
                 }
-                if (null !== $rule->resolver) {
-                    $baseValidator->replacer($rule->name, $rule->resolver);
+                if (is_callable($rule->replacer)) {
+                    $baseValidator->replacer($rule->name, $rule->replacer);
                 }
             }
         }

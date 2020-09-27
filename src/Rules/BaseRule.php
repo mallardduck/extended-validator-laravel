@@ -24,14 +24,14 @@ abstract class BaseRule
     /**
      * @var callable
      */
-    public $resolver;
+    public $replacer;
 
-    public function __construct(string $name, callable $callback, string $message, ?callable $resolver)
+    public function __construct(string $name, callable $callback, string $message, ?callable $replacer)
     {
         $this->name = $name;
         $this->callback = $callback;
         $this->message = $message;
-        $this->resolver = $resolver;
+        $this->replacer = $replacer;
     }
 
     /**
