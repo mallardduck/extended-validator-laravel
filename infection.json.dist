@@ -1,0 +1,17 @@
+{
+  "source": {
+    "directories": [
+      "src"
+    ]
+  },
+  "timeout": 35,
+  "logs": {
+    "text": "build/infection/infection-log.txt",
+    "summary": "build/infection/summary-log.txt",
+    "debug": "build/infection/debug-log.txt"
+  },
+  "mutators": {
+    "@default": true,
+    "@function_signature": false
+  }
+}
