@@ -19,6 +19,10 @@ final class UnfilledWith extends BaseRule
                 $parameters,
                 Validator $validator
             ) use ($ruleName) {
+                // Bail early if value is passed but null.
+                if (null === $value) {
+                    return true;
+                }
                 $validator->requireParameterCount(1, $parameters, $ruleName);
 
                 $validatorProxy = ValidatorProxy::fromValidator($validator);
