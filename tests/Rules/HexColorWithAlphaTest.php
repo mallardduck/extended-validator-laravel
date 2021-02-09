@@ -46,5 +46,11 @@ class HexColorWithAlphaTest extends BaseTest
             'foreground' => '#40123', // With 25% alpha.
         ], $basicUnfilledRules);
         $this->assertTrue($v->fails());
+
+        $v = $this->getValidator()->make([
+            'background' => '#4D4242423', // INVALID: Too much alpha value
+            'foreground' => '80420', // With 50% alpha.
+        ], $basicUnfilledRules);
+        $this->assertTrue($v->fails());
     }
 }

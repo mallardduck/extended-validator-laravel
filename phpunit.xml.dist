@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="tests/bootstrap.php"
          backupGlobals="false"
          backupStaticAttributes="false"
@@ -29,14 +29,8 @@
     </report>
   </coverage>
   <testsuites>
-    <testsuite name="Laravel Test Suite">
+    <testsuite name="Test Suite">
       <directory suffix="Test.php">./tests</directory>
     </testsuite>
   </testsuites>
-  <php>
-    <!--
-        <env name="REDIS_HOST" value="127.0.0.1"/>
-        <env name="REDIS_PORT" value="6379"/>
-        -->
-  </php>
 </phpunit>
