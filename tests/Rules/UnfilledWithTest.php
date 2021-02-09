@@ -79,4 +79,21 @@ class UnfilledWithTest extends BaseTest
         );
         $this->assertTrue($v->passes());
     }
+
+    public function testValidateUnfilledWithNullExample()
+    {
+
+        $v = $this->getValidator()->make(
+            [
+                'name' => 'Ricky Bobby',
+                'last_name' => null
+            ],
+            [
+                'name' => 'sometimes',
+                'first_name' => 'unfilled_with:name',
+                'last_name' => 'unfilled_with:name'
+            ]
+        );
+        $this->assertTrue($v->passes());
+    }
 }

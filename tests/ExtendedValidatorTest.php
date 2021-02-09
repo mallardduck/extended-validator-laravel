@@ -4,8 +4,6 @@ namespace MallardDuck\ExtendedValidator\Tests;
 
 use MallardDuck\ExtendedValidator\RuleManager;
 use MallardDuck\ExtendedValidator\Rules\BaseRule;
-use Roave\BetterReflection\Reflection\ReflectionClass;
-use Roave\BetterReflection\Reflection\ReflectionFunction;
 use Roave\BetterReflection\Reflection\ReflectionObject;
 
 class ExtendedValidatorTest extends BaseTest

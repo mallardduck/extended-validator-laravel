@@ -59,6 +59,53 @@ class UnfilledWithAllTest extends BaseTest
         $this->assertTrue($v->passes());
     }
 
+    public function testValidateUnfilledWithAllNullExample()
+    {
+        $basicUnfilledWithAll = [
+            'name' => 'unfilled_with_all:first_name,last_name',
+            'first_name' => 'sometimes',
+            'last_name' => 'sometimes'
+        ];
+
+        $v = $this->getValidator()->make(
+            [
+                'name'          => null,
+                'first_name'    => 'Ricky',
+                'last_name'     => 'Bobby',
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
+                'name'          => 'Ricky Bobby',
+                'first_name'    => null,
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
+                'name'          => 'Ricky Bobby',
+                'first_name'    => null,
+                'last_name'     => null,
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
+                'name'          => 'Ricky Bobby',
+                'last_name'     => null,
+            ],
+            $basicUnfilledWithAll
+        );
+        $this->assertTrue($v->passes());
+    }
+
     public function testValidateUnfilledWithAllManyPartsExample()
     {
         $basicUnfilledWithAll = [
