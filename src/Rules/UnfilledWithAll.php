@@ -42,12 +42,13 @@ class UnfilledWithAll extends BaseRule
             ) {
                 $argCount = count($ruleArgs);
                 $values = '';
-                for ($i = 1; $i <= ($argCount); $i++) {
-                    $values .= $ruleArgs[$i - 1];
-                    if (1 === ($argCount - $i)) {
+                foreach ($ruleArgs as $arg) {
+                    $values .= $arg;
+                    if (2 === $argCount) {
                         $values .= ' and ';
-                    } elseif (0 !== ($argCount - $i)) {
+                    } elseif ($argCount >= 3) {
                         $values .= ', ';
+                        $argCount--;
                     }
                 }
 
