@@ -81,8 +81,8 @@ Think of it as the opposite of Laravel's `required_with`.
 ```
 $rules = [
     'name' => 'sometimes',
-    'first_name' => 'unfilled_with:name',
-    'last_name' => 'unfilled_with:name'
+    'first_name' => 'prohibited_with:name',
+    'last_name' => 'prohibited_with:name'
 ];
 ```
 
@@ -92,7 +92,7 @@ Think of it as the opposite of Laravel's `required_with_all`.
 
 ```
 $rules = [
-    'name' => 'unfilled_with_all:first_name,middle_name,last_name',
+    'name' => 'prohibited_with_all:first_name,middle_name,last_name',
     'first_name' => 'sometimes',
     'middle_name' => 'sometimes',
     'last_name' => 'sometimes'
