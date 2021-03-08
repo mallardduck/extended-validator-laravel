@@ -27,9 +27,9 @@ All the new rules will be automatically registered for use without any configura
 * [`PublicIp`](#publicip)
 * [`PublicIpv4`](#publicipv4)
 * [`PublicIpv6`](#publicipv6)
-* [`UnfilledIf`](#unfilledif)
-* [`UnfilledWith`](#unfilledwith)
-* [`UnfilledWIthAll`](#unfilledwithall)
+* [`ProhibitedIf`](#unfilledif)
+* [`ProhibitedWith`](#unfilledwith)
+* [`ProhibitedWithAll`](#unfilledwithall)
 
 ### `PublicIp`
 Determine if the field under validation is a valid public IP address.  
@@ -61,22 +61,22 @@ $rules = [
 ];
 ```
 
-### `UnfilledIf`
-The field under validation must not be present if the anotherfield field is equal to any given value.  
-Think of it as the opposite of Larave's `required_if`.
+### `ProhibitedIf`
+Use of the field under validation is prohibited when another field is present, and the value is equal to any given value.  
+Think of it as the opposite of Laravel's `required_if`.
 
 ```
 $rules = [
     'shape'  => 'required',
-    'size'   => 'unfilled_if:shape,rect',
-    'height' => 'unfilled_if:shape,square',
-    'width'  => 'unfilled_if:shape,square',
+    'size'   => 'prohibited_if:shape,rect',
+    'height' => 'prohibited_if:shape,square',
+    'width'  => 'prohibited_if:shape,square',
 ];
 ```
 
-### `UnfilledWith`
-The field under validation must not be present only if any of the other specified fields are present.  
-Think of it as the opposite of Larave's `required_with`.
+### `ProhibitedWith`
+Use of the field under validation is prohibited only if any of the other specified fields are present.  
+Think of it as the opposite of Laravel's `required_with`.
 
 ```
 $rules = [
@@ -86,9 +86,9 @@ $rules = [
 ];
 ```
 
-### `UnfilledWIthAll`
-The field under validation must not be present only if all the other specified fields are present.  
-Think of it as the opposite of Larave's `required_with_all`.
+### `ProhibitedWithAll`
+Use of the field under validation is prohibited only if all the other specified fields are present.  
+Think of it as the opposite of Laravel's `required_with_all`.
 
 ```
 $rules = [
