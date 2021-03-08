@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 use MallardDuck\ExtendedValidator\ValidatorProxy;
 
-class UnfilledWithAll extends BaseRule
+final class ProhibitedWith extends BaseRule
 {
     public function __construct()
     {
@@ -23,16 +23,17 @@ class UnfilledWithAll extends BaseRule
                 if (null === $value) {
                     return true;
                 }
-                $validator->requireParameterCount(2, $parameters, $ruleName);
+                $validator->requireParameterCount(1, $parameters, $ruleName);
 
                 $validatorProxy = ValidatorProxy::fromValidator($validator);
-                if ($validatorProxy->allRequired($parameters)) {
+
+                if (! $validatorProxy->allFailingRequired($parameters)) {
                     return false;
                 }
 
                 return true;
             },
-            'The :attribute field must not be used when :values are present.',
+            'The use of :attribute field is prohibited when :values is present.',
             function (
                 $stringTemplate,
                 $currentField,
@@ -40,18 +41,7 @@ class UnfilledWithAll extends BaseRule
                 $ruleArgs,
                 $validator
             ) {
-                $argCount = count($ruleArgs);
-                $values = '';
-                foreach ($ruleArgs as $arg) {
-                    $values .= $arg;
-                    if (2 === $argCount) {
-                        $values .= ' and ';
-                    } elseif ($argCount >= 3) {
-                        $values .= ', ';
-                        $argCount--;
-                    }
-                }
-
+                $values = implode('/', $ruleArgs);
                 return Str::replaceFirst(':values', $values, $stringTemplate);
             }
         );

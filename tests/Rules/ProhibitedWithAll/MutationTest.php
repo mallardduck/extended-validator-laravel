@@ -1,10 +1,10 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedWithAll;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledWithAllMutationTest extends BaseTest
+class MutationTest extends BaseTest
 {
     public function testValidateUnfilledWithAllIncompleteExample()
     {
@@ -14,13 +14,13 @@ class UnfilledWithAllMutationTest extends BaseTest
                 'first_name' => 'Richard',
             ],
             [
-                'name' => 'unfilled_with_all:first_name',
+                'name' => 'prohibited_with_all:first_name',
                 'first_name' => 'sometimes',
                 'last_name' => 'sometimes'
             ]
         );
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Validation rule unfilled_with_all requires at least 2 parameters.");
+        $this->expectExceptionMessage("Validation rule prohibited_with_all requires at least 2 parameters.");
         $v->fails();
     }
 
@@ -33,7 +33,7 @@ class UnfilledWithAllMutationTest extends BaseTest
                 'last_name' => 'Robertson'
             ],
             [
-                'name' => 'unfilled_with_all:first_name,last_name',
+                'name' => 'prohibited_with_all:first_name,last_name',
                 'first_name' => 'sometimes',
                 'last_name' => 'sometimes'
             ]
@@ -53,7 +53,7 @@ class UnfilledWithAllMutationTest extends BaseTest
                 'last_name' => 'Robertson'
             ],
             [
-                'name' => 'unfilled_with_all:first_name,middle_name,last_name',
+                'name' => 'prohibited_with_all:first_name,middle_name,last_name',
                 'first_name' => 'sometimes',
                 'middle_name' => 'sometimes',
                 'last_name' => 'sometimes'

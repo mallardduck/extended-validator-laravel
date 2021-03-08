@@ -1,18 +1,18 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedIf;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledIfSpecialTest extends BaseTest
+class SpecialTest extends BaseTest
 {
     public function testValidateUnfilledIfBooleanExample()
     {
         $basicUnfilledRules = [
             'equal'  => 'required',
-            'size'   => 'unfilled_if:equal,false',
-            'height' => 'unfilled_if:equal,true',
-            'width'  => 'unfilled_if:equal,true',
+            'size'   => 'prohibited_if:equal,false',
+            'height' => 'prohibited_if:equal,true',
+            'width'  => 'prohibited_if:equal,true',
         ];
 
         $v = $this->getValidator()->make([
@@ -51,10 +51,10 @@ class UnfilledIfSpecialTest extends BaseTest
     {
         $basicUnfilledRules = [
             'equal'  => 'sometimes',
-            'size'   => 'unfilled_if:equal,true,null',
-            'height' => 'unfilled_if:equal,false,null',
-            'width'  => 'unfilled_if:equal,false',
-            'depth'  => 'unfilled_if:equal,false',
+            'size'   => 'prohibited_if:equal,true,null',
+            'height' => 'prohibited_if:equal,false,null',
+            'width'  => 'prohibited_if:equal,false',
+            'depth'  => 'prohibited_if:equal,false',
         ];
 
         $v = $this->getValidator()->make([

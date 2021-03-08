@@ -1,18 +1,18 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedIf;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledIfGeneralTest extends BaseTest
+class GeneralTest extends BaseTest
 {
     public function testValidateUnfilledIfShapeGeneratorExample()
     {
         $basicUnfilledRules = [
             'shape'  => 'required',
-            'size'   => 'required_if:shape,square|unfilled_if:shape,rect',
-            'height' => 'unfilled_if:shape,square',
-            'width'  => 'unfilled_if:shape,square',
+            'size'   => 'required_if:shape,square|prohibited_if:shape,rect',
+            'height' => 'prohibited_if:shape,square',
+            'width'  => 'prohibited_if:shape,square',
         ];
 
         $v = $this->getValidator()->make(['shape' => 'none'], $basicUnfilledRules);
@@ -59,9 +59,9 @@ class UnfilledIfGeneralTest extends BaseTest
     {
         $basicUnfilledRules = [
             'mode'       => 'required',
-            'full_name'  => 'required_if:mode,full|unfilled_if:mode,split',
-            'first_name' => 'unfilled_if:mode,full',
-            'last_name'  => 'unfilled_if:mode,full',
+            'full_name'  => 'required_if:mode,full|prohibited_if:mode,split',
+            'first_name' => 'prohibited_if:mode,full',
+            'last_name'  => 'prohibited_if:mode,full',
         ];
 
         $v = $this->getValidator()->make([

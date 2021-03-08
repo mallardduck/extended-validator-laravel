@@ -1,17 +1,17 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedWith;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledWithTest extends BaseTest
+class GeneralTest extends BaseTest
 {
     public function testValidateUnfilledWithNameExample()
     {
         $v = $this->getValidator()->make(
             [],
             [
-                'name' => 'unfilled_with:first_name',
+                'name' => 'prohibited_with:first_name',
                 'first_name' => 'sometimes'
             ]
         );
@@ -20,7 +20,7 @@ class UnfilledWithTest extends BaseTest
         $v = $this->getValidator()->make(
             ['name' => 'Ricky Bobby'],
             [
-                'name' => 'unfilled_with:first_name,last_name',
+                'name' => 'prohibited_with:first_name,last_name',
                 'first_name' => 'sometimes'
             ]
         );
@@ -33,7 +33,7 @@ class UnfilledWithTest extends BaseTest
                 'last_name' => 'Robertson'
             ],
             [
-                'name' => 'unfilled_with:first_name,last_name',
+                'name' => 'prohibited_with:first_name,last_name',
                 'first_name' => 'sometimes',
                 'last_name' => 'sometimes'
             ]
@@ -46,7 +46,7 @@ class UnfilledWithTest extends BaseTest
                 'last_name' => 'Robertson'
             ],
             [
-                'name' => 'unfilled_with:first_name,last_name',
+                'name' => 'prohibited_with:first_name,last_name',
                 'first_name' => 'sometimes'
             ]
         );
@@ -60,8 +60,8 @@ class UnfilledWithTest extends BaseTest
             ],
             [
                 'name' => 'sometimes',
-                'first_name' => 'unfilled_with:name',
-                'last_name' => 'unfilled_with:name'
+                'first_name' => 'prohibited_with:name',
+                'last_name' => 'prohibited_with:name'
             ]
         );
         $this->assertTrue($v->fails());
@@ -73,8 +73,8 @@ class UnfilledWithTest extends BaseTest
             ],
             [
                 'name' => 'sometimes',
-                'first_name' => 'unfilled_with:name',
-                'last_name' => 'unfilled_with:name'
+                'first_name' => 'prohibited_with:name',
+                'last_name' => 'prohibited_with:name'
             ]
         );
         $this->assertTrue($v->passes());
@@ -90,8 +90,8 @@ class UnfilledWithTest extends BaseTest
             ],
             [
                 'name' => 'sometimes',
-                'first_name' => 'unfilled_with:name',
-                'last_name' => 'unfilled_with:name'
+                'first_name' => 'prohibited_with:name',
+                'last_name' => 'prohibited_with:name'
             ]
         );
         $this->assertTrue($v->passes());

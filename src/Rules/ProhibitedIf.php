@@ -6,34 +6,32 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 use MallardDuck\ExtendedValidator\ValidatorProxy;
 
-final class UnfilledWith extends BaseRule
+final class ProhibitedIf extends BaseRule
 {
     public function __construct()
     {
         $ruleName = $this->getRuleName(__CLASS__);
         parent::__construct(
             $ruleName,
-            static function (
+            function (
                 string $attribute,
                 $value,
                 $parameters,
                 Validator $validator
             ) use ($ruleName) {
-                // Bail early if value is passed but null.
-                if (null === $value) {
-                    return true;
-                }
                 $validator->requireParameterCount(1, $parameters, $ruleName);
 
                 $validatorProxy = ValidatorProxy::fromValidator($validator);
 
-                if (! $validatorProxy->allFailingRequired($parameters)) {
-                    return false;
+                [$values, $other] = $validatorProxy->prepareValuesAndOther($parameters);
+
+                if (in_array($other, $values, true)) {
+                    return ! $validator->validateRequired($attribute, $value);
                 }
 
                 return true;
             },
-            'The :attribute field must not be used when :values is present.',
+            'The use of :attribute field is prohibited when :other field is :value.',
             function (
                 $stringTemplate,
                 $currentField,
@@ -41,8 +39,11 @@ final class UnfilledWith extends BaseRule
                 $ruleArgs,
                 $validator
             ) {
-                $values = implode('/', $ruleArgs);
-                return Str::replaceFirst(':values', $values, $stringTemplate);
+                [$other, $value] = $ruleArgs;
+                $results = Str::replaceFirst(':other', $other, $stringTemplate);
+                $results = Str::replaceFirst(':value', $value, $results);
+
+                return $results;
             }
         );
     }

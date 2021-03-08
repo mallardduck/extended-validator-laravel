@@ -9,9 +9,9 @@ use MallardDuck\ExtendedValidator\Rules\MacAddress;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv4;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv6;
-use MallardDuck\ExtendedValidator\Rules\UnfilledIf;
-use MallardDuck\ExtendedValidator\Rules\UnfilledWith;
-use MallardDuck\ExtendedValidator\Rules\UnfilledWithAll;
+use MallardDuck\ExtendedValidator\Rules\ProhibitedIf;
+use MallardDuck\ExtendedValidator\Rules\ProhibitedWith;
+use MallardDuck\ExtendedValidator\Rules\ProhibitedWithAll;
 
 class RuleManager
 {
@@ -25,13 +25,13 @@ class RuleManager
     ];
 
     protected static $implicitRules = [
-        UnfilledIf::class,
+        ProhibitedIf::class,
     ];
 
     protected static $dependentRules = [
-        UnfilledIf::class,
-        UnfilledWith::class,
-        UnfilledWithAll::class,
+        ProhibitedIf::class,
+        ProhibitedWith::class,
+        ProhibitedWithAll::class,
     ];
 
     public static function allRuleNames(): array

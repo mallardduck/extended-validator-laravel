@@ -1,15 +1,15 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedWithAll;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledWithAllTest extends BaseTest
+class GeneralTest extends BaseTest
 {
     public function testValidateUnfilledWithAllNameExample()
     {
         $basicUnfilledWithAll = [
-            'name' => 'unfilled_with_all:first_name,last_name',
+            'name' => 'prohibited_with_all:first_name,last_name',
             'first_name' => 'sometimes',
             'last_name' => 'sometimes'
         ];
@@ -62,7 +62,7 @@ class UnfilledWithAllTest extends BaseTest
     public function testValidateUnfilledWithAllNullExample()
     {
         $basicUnfilledWithAll = [
-            'name' => 'unfilled_with_all:first_name,last_name',
+            'name' => 'prohibited_with_all:first_name,last_name',
             'first_name' => 'sometimes',
             'last_name' => 'sometimes'
         ];
@@ -109,7 +109,7 @@ class UnfilledWithAllTest extends BaseTest
     public function testValidateUnfilledWithAllManyPartsExample()
     {
         $basicUnfilledWithAll = [
-            'name' => 'unfilled_with_all:first_name,middle_name,last_name',
+            'name' => 'prohibited_with_all:first_name,middle_name,last_name',
             'first_name' => 'sometimes',
             'middle_name' => 'sometimes',
             'last_name' => 'sometimes'

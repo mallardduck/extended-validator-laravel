@@ -1,10 +1,10 @@
 <?php
 
-namespace MallardDuck\ExtendedValidator\Tests\Rules;
+namespace MallardDuck\ExtendedValidator\Tests\Rules\ProhibitedIf;
 
 use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
-class UnfilledIfMutationTest extends BaseTest
+class MutationTest extends BaseTest
 {
     public function testValidateUnfilledIfIncompleteExample()
     {
@@ -14,10 +14,10 @@ class UnfilledIfMutationTest extends BaseTest
             'size'  => 25
         ], [
             'shape'  => 'required',
-            'size'   => 'unfilled_if',
+            'size'   => 'prohibited_if',
         ]);
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Validation rule unfilled_if requires at least 1 parameters.");
+        $this->expectExceptionMessage("Validation rule prohibited_if requires at least 1 parameters.");
         $v->fails();
     }
 }
