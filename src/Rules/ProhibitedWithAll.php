@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 use MallardDuck\ExtendedValidator\ValidatorProxy;
 
-class ProhibitedWithAll extends BaseRule
+final class ProhibitedWithAll extends BaseRule
 {
     public function __construct()
     {

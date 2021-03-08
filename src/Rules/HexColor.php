@@ -4,7 +4,7 @@ namespace MallardDuck\ExtendedValidator\Rules;
 
 use Illuminate\Validation\Validator;
 
-class HexColor extends BaseRule
+final class HexColor extends BaseRule
 {
     public function __construct()
     {

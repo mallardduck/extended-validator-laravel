@@ -4,7 +4,7 @@ namespace MallardDuck\ExtendedValidator\Rules;
 
 use Illuminate\Validation\Validator;
 
-class PublicIpv6 extends BaseRule
+final class PublicIpv6 extends BaseRule
 {
     public function __construct()
     {
