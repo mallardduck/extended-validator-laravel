@@ -82,7 +82,6 @@ class GeneralTest extends BaseTest
 
     public function testValidateUnfilledWithNullExample()
     {
-
         $v = $this->getValidator()->make(
             [
                 'name' => 'Ricky Bobby',

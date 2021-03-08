@@ -8,7 +8,6 @@ class MutationTest extends BaseTest
 {
     public function testValidateUnfilledIfIncompleteExample()
     {
-
         $v = $this->getValidator()->make([
             'shape' => 'none',
             'size'  => 25

@@ -8,7 +8,6 @@ class MutationTest extends BaseTest
 {
     public function testValidateUnfilledWithIncompleteExample()
     {
-
         $v = $this->getValidator()->make(
             [
                 'name' => 'Ricky Bobby',
