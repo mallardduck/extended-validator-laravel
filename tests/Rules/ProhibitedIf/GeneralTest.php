@@ -6,7 +6,7 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class GeneralTest extends BaseTest
 {
-    public function testValidateUnfilledIfShapeGeneratorExample()
+    public function testValidateProhibitedIfShapeGeneratorExample()
     {
         $basicUnfilledRules = [
             'shape'  => 'required',
@@ -55,7 +55,7 @@ class GeneralTest extends BaseTest
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateUnfilledIfNameExample()
+    public function testValidateProhibitedIfNameExample()
     {
         $basicUnfilledRules = [
             'mode'       => 'required',

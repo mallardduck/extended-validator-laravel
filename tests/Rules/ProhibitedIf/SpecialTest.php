@@ -6,7 +6,7 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class SpecialTest extends BaseTest
 {
-    public function testValidateUnfilledIfBooleanExample()
+    public function testValidateProhibitedIfBooleanExample()
     {
         $basicUnfilledRules = [
             'equal'  => 'required',
@@ -47,7 +47,7 @@ class SpecialTest extends BaseTest
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateUnfilledIfNullExample()
+    public function testValidateProhibitedIfNullExample()
     {
         $basicUnfilledRules = [
             'equal'  => 'sometimes',

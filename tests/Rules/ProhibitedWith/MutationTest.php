@@ -6,7 +6,7 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class MutationTest extends BaseTest
 {
-    public function testValidateUnfilledWithIncompleteExample()
+    public function testValidateProhibitedWithIncompleteExample()
     {
         $v = $this->getValidator()->make(
             [

@@ -6,7 +6,7 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class MutationTest extends BaseTest
 {
-    public function testValidateUnfilledWithAllIncompleteExample()
+    public function testValidateProhibitedWithAllIncompleteExample()
     {
         $v = $this->getValidator()->make(
             [
@@ -24,7 +24,7 @@ class MutationTest extends BaseTest
         $v->fails();
     }
 
-    public function testValidateUnfilledWithAllNameExample()
+    public function testValidateProhibitedWithAllNameExample()
     {
         $v = $this->getValidator()->make(
             [
@@ -43,7 +43,7 @@ class MutationTest extends BaseTest
         self::assertStringContainsString("first_name and last_name", $v->messages()->messages()['name'][0]);
     }
 
-    public function testValidateUnfilledWithAllManyPartsExample()
+    public function testValidateProhibitedWithAllManyPartsExample()
     {
         $v = $this->getValidator()->make(
             [

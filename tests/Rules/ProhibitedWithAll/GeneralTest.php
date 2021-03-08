@@ -6,9 +6,9 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class GeneralTest extends BaseTest
 {
-    public function testValidateUnfilledWithAllNameExample()
+    public function testValidateProhibitedWithAllNameExample()
     {
-        $basicUnfilledWithAll = [
+        $basicProhibitedWithAll = [
             'name' => 'prohibited_with_all:first_name,last_name',
             'first_name' => 'sometimes',
             'last_name' => 'sometimes'
@@ -16,7 +16,7 @@ class GeneralTest extends BaseTest
 
         $v = $this->getValidator()->make(
             ['name' => 'Ricky Bobby'],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -26,7 +26,7 @@ class GeneralTest extends BaseTest
                 'first_name' => 'Richard',
                 'last_name' => 'Robertson'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->fails());
 
@@ -35,7 +35,7 @@ class GeneralTest extends BaseTest
                 'name' => 'Ricky Bobby',
                 'last_name' => 'Robertson'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -45,7 +45,7 @@ class GeneralTest extends BaseTest
                 'first_name' => 'Richard',
                 'last_name' => 'Robert'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->fails());
 
@@ -54,14 +54,14 @@ class GeneralTest extends BaseTest
                 'first_name' => 'Richard',
                 'last_name' => 'Robert'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateUnfilledWithAllNullExample()
+    public function testValidateProhibitedWithAllNullExample()
     {
-        $basicUnfilledWithAll = [
+        $basicProhibitedWithAll = [
             'name' => 'prohibited_with_all:first_name,last_name',
             'first_name' => 'sometimes',
             'last_name' => 'sometimes'
@@ -73,7 +73,7 @@ class GeneralTest extends BaseTest
                 'first_name'    => 'Ricky',
                 'last_name'     => 'Bobby',
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -82,7 +82,7 @@ class GeneralTest extends BaseTest
                 'name'          => 'Ricky Bobby',
                 'first_name'    => null,
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -92,7 +92,7 @@ class GeneralTest extends BaseTest
                 'first_name'    => null,
                 'last_name'     => null,
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -101,14 +101,14 @@ class GeneralTest extends BaseTest
                 'name'          => 'Ricky Bobby',
                 'last_name'     => null,
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateUnfilledWithAllManyPartsExample()
+    public function testValidateProhibitedWithAllManyPartsExample()
     {
-        $basicUnfilledWithAll = [
+        $basicProhibitedWithAll = [
             'name' => 'prohibited_with_all:first_name,middle_name,last_name',
             'first_name' => 'sometimes',
             'middle_name' => 'sometimes',
@@ -117,7 +117,7 @@ class GeneralTest extends BaseTest
 
         $v = $this->getValidator()->make(
             ['name' => 'Ricky Bobby'],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -128,7 +128,7 @@ class GeneralTest extends BaseTest
                 'middle_name' => 'Wallace',
                 'last_name' => 'Robertson'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->fails());
 
@@ -138,7 +138,7 @@ class GeneralTest extends BaseTest
                 'first_name' => 'Richard',
                 'last_name' => 'Robert'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
 
@@ -148,7 +148,7 @@ class GeneralTest extends BaseTest
                 'middle_name' => 'Wallace',
                 'last_name' => 'Robertson'
             ],
-            $basicUnfilledWithAll
+            $basicProhibitedWithAll
         );
         $this->assertTrue($v->passes());
     }

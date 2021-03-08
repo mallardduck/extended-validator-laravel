@@ -6,7 +6,7 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class GeneralTest extends BaseTest
 {
-    public function testValidateUnfilledWithNameExample()
+    public function testValidateProhibitedWithNameExample()
     {
         $v = $this->getValidator()->make(
             [],
@@ -80,7 +80,7 @@ class GeneralTest extends BaseTest
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateUnfilledWithNullExample()
+    public function testValidateProhibitedWithNullExample()
     {
         $v = $this->getValidator()->make(
             [
