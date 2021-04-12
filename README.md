@@ -62,17 +62,10 @@ $rules = [
 ```
 
 ### `ProhibitedIf`
-Use of the field under validation is prohibited when another field is present, and the value is equal to any given value.  
-Think of it as the opposite of Laravel's `required_if`.
+It's now suggested that you use the native Laravel version of this rule. 
+This package now requires the version that ships this, so it should be there.  
 
-```
-$rules = [
-    'shape'  => 'required',
-    'size'   => 'prohibited_if:shape,rect',
-    'height' => 'prohibited_if:shape,square',
-    'width'  => 'prohibited_if:shape,square',
-];
-```
+For more info see the docs: https://laravel.com/docs/8.x/validation#rule-prohibited-if
 
 ### `ProhibitedWith`
 Use of the field under validation is prohibited only if any of the other specified fields are present.  

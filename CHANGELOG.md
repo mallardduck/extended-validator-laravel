@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2021-04-12
+### Changed
+- Required laravel version to `8.33` which provides a native `ProhibitedIf`.
+
+### Removed
+- Pulled out the `ProhibitedIf` rule as it collides with the native `prohibited_if`. Not breaking change due to new laravel requirement.
+
+## [2.0.1] - 2021-04-12
+### Added
+- Support for PHP 8.0.x
+
 ## [2.0.0] - 2021-03-08
 ### Added
 - A changelog file that will use keepachangelog.
@@ -13,7 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - All the `Unfilled*` rules to use `Prohibited*` instead.
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.1...2.1.0
+[2.0.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/mallardduck/extended-validator-laravel/compare/1.2.2...2.0.0
 [1.2.2]: https://github.com/mallardduck/extended-validator-laravel/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/mallardduck/extended-validator-laravel/compare/1.2.0...1.2.1
