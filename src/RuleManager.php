@@ -24,8 +24,6 @@ class RuleManager
         MacAddress::class,
     ];
 
-    protected static $implicitRules = [];
-
     protected static $dependentRules = [
         ProhibitedWith::class,
         ProhibitedWithAll::class,
@@ -35,11 +33,8 @@ class RuleManager
     {
         static $allRuleNames = null;
         if (is_null($allRuleNames)) {
-            $allRuleNames = collect(array_merge(
-                self::$rules,
-                self::$implicitRules,
-                self::$dependentRules,
-            ))->map(static function ($value) {
+            $allRuleNames = collect(self::$rules)->merge(self::$dependentRules)
+            ->map(static function ($value) {
                 return Str::snake(explode('\\', $value)[3]);
             })->unique()->toArray();
         }
@@ -51,7 +46,6 @@ class RuleManager
     {
         return [
             'rules' => self::$rules,
-            'implicit' => self::$implicitRules,
             'dependent' => self::$dependentRules,
         ];
     }

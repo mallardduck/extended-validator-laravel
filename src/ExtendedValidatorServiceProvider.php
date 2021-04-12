@@ -24,9 +24,6 @@ class ExtendedValidatorServiceProvider extends ServiceProvider
                 if ('rules' === $ruleType) {
                     $baseValidator->extend($rule->name, $rule->callback, $rule->message);
                 }
-                if ('implicit' === $ruleType) {
-                    $baseValidator->extendImplicit($rule->name, $rule->callback, $rule->message);
-                }
                 if ('dependent' === $ruleType) {
                     $baseValidator->extendDependent($rule->name, $rule->callback, $rule->message);
                 }
