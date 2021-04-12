@@ -4,7 +4,6 @@ namespace MallardDuck\ExtendedValidator\Tests;
 
 use MallardDuck\ExtendedValidator\RuleManager;
 use MallardDuck\ExtendedValidator\Rules\BaseRule;
-use Roave\BetterReflection\Reflection\ReflectionObject;
 
 class ExtendedValidatorTest extends BaseTest
 {
@@ -35,8 +34,7 @@ class ExtendedValidatorTest extends BaseTest
             }
         }
 
-        $validatorReflection = ReflectionObject::createFromInstance($validatorFactory);
-        $registeredReplacers = $validatorReflection->getProperty('replacers')->getValue($validatorFactory);
+        $registeredReplacers = $this->getPrivatePropertyValueFromObject($validatorFactory, 'replacers');
 
         self::assertCount($replacerCount, $registeredReplacers);
     }
@@ -57,8 +55,7 @@ class ExtendedValidatorTest extends BaseTest
             }
         }
 
-        $validatorReflection = ReflectionObject::createFromInstance($validatorFactory);
-        $registeredImplicitRules = $validatorReflection->getProperty('implicitExtensions')->getValue($validatorFactory);
+        $registeredImplicitRules = $this->getPrivatePropertyValueFromObject($validatorFactory, 'implicitExtensions');
 
         self::assertCount($implicitCount, $registeredImplicitRules);
 
