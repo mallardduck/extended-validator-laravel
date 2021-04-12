@@ -24,12 +24,9 @@ class RuleManager
         MacAddress::class,
     ];
 
-    protected static $implicitRules = [
-        ProhibitedIf::class,
-    ];
+    protected static $implicitRules = [];
 
     protected static $dependentRules = [
-        ProhibitedIf::class,
         ProhibitedWith::class,
         ProhibitedWithAll::class,
     ];

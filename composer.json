@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "illuminate/validation": "^8.0"
+        "illuminate/validation": "^8.32"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",

@@ -61,6 +61,9 @@ class MutationTest extends BaseTest
         );
         self::assertTrue($v->fails());
         self::assertCount(1, $v->messages()->toArray());
-        self::assertStringContainsString("first_name, middle_name and last_name", $v->messages()->messages()['name'][0]);
+        self::assertStringContainsString(
+            "first_name, middle_name and last_name",
+            $v->messages()->messages()['name'][0]
+        );
     }
 }
