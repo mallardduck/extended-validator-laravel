@@ -65,13 +65,13 @@ jobs:
           php-coveralls --coverage_clover=build/logs/clover.xml -v
 
       - name: Upload Scrutinizer coverage
-        if: ${{ "ubuntu-latest" == matrix.os }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: sudo-bot/action-scrutinizer@latest
         with:
           cli-args: "--format=php-clover build/logs/clover.xml"
 
       - name: Upload to Codecov
-        if: ${{ "ubuntu-latest" == matrix.os }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: codecov/codecov-action@v1
         with:
           files: ./build/logs/clover.xml # optional
