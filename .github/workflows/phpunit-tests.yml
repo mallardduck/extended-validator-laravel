@@ -1,8 +1,6 @@
 name: PHPunit Tests
 
-on:
-  push:
-  pull_request:
+on: ["push", "pull_request"]
 
 jobs:
   tests:
@@ -18,31 +16,59 @@ jobs:
     name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: ~/.composer/cache/files
-        key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
-        restore-keys: |
-          dependencies-php-${{ matrix.php }}-composer-
-          dependencies-php-
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            dependencies-php-${{ matrix.php }}-composer-
+            dependencies-php-
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php }}
-        extensions: json, dom, curl, libxml, mbstring, fileinfo
-        coverage: none
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: json, dom, curl, libxml, mbstring, fileinfo
+          coverage: none
 
-    - name: Install dependencies
-      run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+      - name: Install dependencies
+        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
-    - name: Execute tests
-      run: vendor/bin/phpunit
+      - name: Execute tests
+        run: vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
+
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}
+          parallel: true
+
+      - name: Upload Scrutinizer coverage
+        uses: sudo-bot/action-scrutinizer@latest
+        with:
+          cli-args: "--format=php-clover build/logs/clover.xml"
+
+      - uses: codecov/codecov-action@v1
+        with:
+          files: ./build/logs/clover.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+
+  finish:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true

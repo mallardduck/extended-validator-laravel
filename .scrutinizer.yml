@@ -1,5 +1,7 @@
 # language: php
 build:
+  environment:
+    php: 8.0.3
   nodes:
     tests: true
     analysis:
@@ -43,4 +45,4 @@ filter:
 tools:
   external_code_coverage:
     timeout: 300
-    runs: 2
+    runs: 8
