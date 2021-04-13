@@ -45,12 +45,14 @@ jobs:
       - name: Execute tests
         run: vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
 
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}
-          parallel: true
+      - name: Upload coverage results to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_PARALLEL: true
+          COVERALLS_FLAG_NAME: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}
+        run: |
+          composer global require php-coveralls/php-coveralls
+          php-coveralls --coverage_clover=build/logs/clover.xml -v
 
       - name: Upload Scrutinizer coverage
         uses: sudo-bot/action-scrutinizer@latest
