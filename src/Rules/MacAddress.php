@@ -2,8 +2,6 @@
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
-use Illuminate\Validation\Validator;
-
 final class MacAddress extends BaseRule
 {
     public function __construct()

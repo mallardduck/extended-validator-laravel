@@ -3,7 +3,6 @@
 namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 
 class ValidatorProxy

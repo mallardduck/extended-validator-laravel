@@ -2,8 +2,6 @@
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
-use Illuminate\Validation\Validator;
-
 final class PublicIpv4 extends BaseRule
 {
     public function __construct()
