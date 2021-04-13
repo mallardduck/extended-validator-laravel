@@ -36,8 +36,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: json, dom, curl, libxml, mbstring, fileinfo, xdebug
-          coverage: none
+          extensions: json, dom, curl, libxml, mbstring, fileinfo
+          coverage: xdebug
 
       - name: Install dependencies
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
