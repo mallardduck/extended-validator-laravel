@@ -12,7 +12,7 @@ use MallardDuck\ExtendedValidator\Rules\PublicIp;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv4;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv6;
 
-class RuleManager
+final class RuleManager
 {
     protected static $rules = [
         HexColor::class,

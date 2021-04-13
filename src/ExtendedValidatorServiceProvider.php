@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Factory;
 use MallardDuck\ExtendedValidator\Rules\BaseRule;
 
-class ExtendedValidatorServiceProvider extends ServiceProvider
+final class ExtendedValidatorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

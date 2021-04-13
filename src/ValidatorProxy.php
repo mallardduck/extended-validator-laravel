@@ -5,7 +5,7 @@ namespace MallardDuck\ExtendedValidator;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Validator;
 
-class ValidatorProxy
+final class ValidatorProxy
 {
     /**
      * @var Validator
