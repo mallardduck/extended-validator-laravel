@@ -43,7 +43,17 @@ jobs:
         run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
       - name: Execute tests
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+               export XDEBUG_MODE=coverage
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+               set XDEBUG_MODE=coverage
+          else
+               echo "$RUNNER_OS not supported"
+               exit 1
+          fi
+          vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
+        shell: bash
 
       - name: Upload coverage results to Coveralls
         env:
