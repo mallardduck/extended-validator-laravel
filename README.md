@@ -20,16 +20,16 @@ Just require the project and Laravel's Service Provider Auto-discovery will do t
 All the new rules will be automatically registered for use without any configuration.
 
 ## Requirements
-* PHP 7.3.x
-* Laravel 8.x
+* PHP 7.4.x / 8.0.x
+* Laravel 8.32.x (or greater)
 
 ## Available Rules
 * [`PublicIp`](#publicip)
 * [`PublicIpv4`](#publicipv4)
 * [`PublicIpv6`](#publicipv6)
-* [`ProhibitedIf`](#unfilledif)
-* [`ProhibitedWith`](#unfilledwith)
-* [`ProhibitedWithAll`](#unfilledwithall)
+* [`ProhibitedIf`](#prohibitedif)
+* [`ProhibitedWith`](#prohibitedwith)
+* [`ProhibitedWithAll`](#prohibitedwithall)
 
 ### `PublicIp`
 Determine if the field under validation is a valid public IP address.  

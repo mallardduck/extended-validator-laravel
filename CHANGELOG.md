@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.1] - 2021-04-13
+### Changed
+- Made all classes final.
+- Remove some unused code.
+- Switch to GitHub actions from TravisCI.
+
 ## [2.1.0] - 2021-04-12
 ### Changed
 - Required laravel version to `8.33` which provides a native `ProhibitedIf`.
@@ -24,7 +30,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - All the `Unfilled*` rules to use `Prohibited*` instead.
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/v2.1.0...HEAD
+# Undocumented Releases
+## [1.2.2]
+## [1.2.1]
+## [1.2.0]
+## [1.1.0]
+## [1.0.0]
+
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/mallardduck/extended-validator-laravel/compare/1.2.2...2.0.0
