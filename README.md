@@ -1,9 +1,6 @@
 # Extended Validation for Laravel
 [![Maintainability](https://api.codeclimate.com/v1/badges/1b7e269bba89fe57e703/maintainability)](https://codeclimate.com/github/mallardduck/extended-validator-laravel/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1b7e269bba89fe57e703/test_coverage)](https://codeclimate.com/github/mallardduck/extended-validator-laravel/test_coverage)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mallardduck/extended-validator-laravel/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mallardduck/extended-validator-laravel/?branch=main)
-[![Build Status](https://scrutinizer-ci.com/g/mallardduck/extended-validator-laravel/badges/build.png?b=main)](https://scrutinizer-ci.com/g/mallardduck/extended-validator-laravel/build-status/main)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/mallardduck/extended-validator-laravel/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
 [![codecov](https://codecov.io/gh/mallardduck/extended-validator-laravel/branch/main/graph/badge.svg)](https://codecov.io/gh/mallardduck/extended-validator-laravel)
 [![Coverage Status](https://coveralls.io/repos/github/mallardduck/extended-validator-laravel/badge.svg?branch=main)](https://coveralls.io/github/mallardduck/extended-validator-laravel?branch=main)
 
