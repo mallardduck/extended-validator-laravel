@@ -14,7 +14,7 @@ final class NonPublicIpv4 extends BaseRule
                 $value
             ) {
                 // Eager return as false for anything that's just flat out not an IP.
-                if (false === filter_var($value, FILTER_VALIDATE_IP)) {
+                if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
                     return false;
                 }
 
@@ -22,7 +22,7 @@ final class NonPublicIpv4 extends BaseRule
                     filter_var(
                         $value,
                         FILTER_VALIDATE_IP,
-                        FILTER_FLAG_IPV4 | FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE
+                        FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE
                     ) === false
                 ) {
                     return true;
