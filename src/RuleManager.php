@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use MallardDuck\ExtendedValidator\Rules\HexColor;
 use MallardDuck\ExtendedValidator\Rules\HexColorWithAlpha;
 use MallardDuck\ExtendedValidator\Rules\MacAddress;
+use MallardDuck\ExtendedValidator\Rules\NonPublicIpv4;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWith;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWithAll;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
@@ -20,6 +21,7 @@ final class RuleManager
         PublicIp::class,
         PublicIpv4::class,
         PublicIpv6::class,
+        NonPublicIpv4::class,
         MacAddress::class,
     ];
 
