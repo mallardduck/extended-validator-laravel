@@ -23,6 +23,7 @@ All the new rules will be automatically registered for use without any configura
 ## Available Rules
 * [`PublicIp`](#publicip)
 * [`PublicIpv4`](#publicipv4)
+* [`NonPublicIpv4`](#nonpublicipv4)
 * [`PublicIpv6`](#publicipv6)
 * [`ProhibitedIf`](#prohibitedif)
 * [`ProhibitedWith`](#prohibitedwith)
@@ -45,6 +46,16 @@ Just like Laravel's `ipv4` rule, but IPs cannot be within private or reserved ra
 ```
 $rules = [
     'ip' => 'required|public_ipv4',
+];
+```
+
+### `NonPublicIpv4`
+Determine if the field under validation is a valid non-public IPv4 address.  
+Just like Laravel's `ipv4` rule, but IPs should only be within private or reserved ranges.
+
+```
+$rules = [
+    'ip' => 'required|non_public_ipv4',
 ];
 ```
 
