@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0]
 ## [1.0.0]
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/2.2.0...main
 [2.2.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.1...2.1.0
