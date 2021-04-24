@@ -9,7 +9,7 @@ abstract class BaseRule
     /**
      * @var string
      */
-    public $name;
+    protected string $name;
 
     /**
      * @var callable
@@ -19,7 +19,7 @@ abstract class BaseRule
     /**
      * @var string
      */
-    public $message;
+    public string $message;
 
     /**
      * @var callable
@@ -37,5 +37,13 @@ abstract class BaseRule
     protected function getImplicitRuleName(): string
     {
         return Str::of(static::class)->after('Rules\\')->snake();
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
     }
 }

@@ -22,13 +22,13 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
                 /** @var BaseRule $rule */
                 $rule = new $rule();
                 if ('rules' === $ruleType) {
-                    $baseValidator->extend($rule->name, $rule->callback, $rule->message);
+                    $baseValidator->extend($rule->getName(), $rule->callback, $rule->message);
                 }
                 if ('dependent' === $ruleType) {
-                    $baseValidator->extendDependent($rule->name, $rule->callback, $rule->message);
+                    $baseValidator->extendDependent($rule->getName(), $rule->callback, $rule->message);
                 }
                 if (is_callable($rule->replacer)) {
-                    $baseValidator->replacer($rule->name, $rule->replacer);
+                    $baseValidator->replacer($rule->getName(), $rule->replacer);
                 }
             }
         }
