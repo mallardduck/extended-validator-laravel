@@ -17,8 +17,14 @@ Just require the project and Laravel's Service Provider Auto-discovery will do t
 All the new rules will be automatically registered for use without any configuration.
 
 ## Requirements
-* PHP 7.4.x / 8.0.x
+* PHP 8.x
 * Laravel 8.32.x (or greater)
+
+### Past PHP version support
+| PHP | Package |
+|-----|---------|
+| 8.0 | Current |
+| 7.4 | 2.3.1 |
 
 ## Available Rules
 * [`PublicIp`](#publicip)
