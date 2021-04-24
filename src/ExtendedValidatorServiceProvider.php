@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\ServiceProvider;
@@ -10,10 +12,8 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         /** @var Factory $baseValidator */
         $baseValidator = app('validator');

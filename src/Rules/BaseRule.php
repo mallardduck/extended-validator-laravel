@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
@@ -6,9 +8,6 @@ use Illuminate\Support\Str;
 
 abstract class BaseRule
 {
-    /**
-     * @var string
-     */
     protected string $name;
 
     /**
@@ -16,9 +15,6 @@ abstract class BaseRule
      */
     protected $callback;
 
-    /**
-     * @var string
-     */
     protected string $message;
 
     /**

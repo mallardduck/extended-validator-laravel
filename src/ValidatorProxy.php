@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator;
 
@@ -7,9 +9,6 @@ use Illuminate\Validation\Validator;
 
 final class ValidatorProxy
 {
-    /**
-     * @var Validator
-     */
     private Validator $validator;
 
     private function __construct(Validator $validator)
@@ -18,8 +17,6 @@ final class ValidatorProxy
     }
 
     /**
-     * @param Validator $validator
-     *
      * @return static
      */
     public static function fromValidator(Validator $validator): self
@@ -28,7 +25,7 @@ final class ValidatorProxy
     }
 
     /**
-     * @return array
+     * @return array<string, string|int|float|null>
      */
     private function getData(): array
     {
@@ -38,7 +35,7 @@ final class ValidatorProxy
     /**
      * Get the value of a given attribute.
      *
-     * @param  string  $attribute
+     * @return string|int|float|null
      */
     protected function getValue(string $attribute)
     {
@@ -48,9 +45,7 @@ final class ValidatorProxy
     /**
      * Determine if all of the given attributes pass the required test.
      *
-     * @param  array  $attributes
-     *
-     * @return bool
+     * @param array<string> $attributes
      */
     public function allRequired(array $attributes): bool
     {
@@ -66,9 +61,7 @@ final class ValidatorProxy
     /**
      * Determine if all of the given attributes fail the required test.
      *
-     * @param  array  $attributes
-     *
-     * @return bool
+     * @param array<string> $attributes
      */
     public function allFailingRequired(array $attributes): bool
     {

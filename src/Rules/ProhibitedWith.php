@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
@@ -10,28 +12,8 @@ final class ProhibitedWith extends BaseRule
 {
     public function __construct()
     {
-        $ruleName = $this->getImplicitRuleName();
         parent::__construct(
-            static function (
-                string $attribute,
-                $value,
-                $parameters,
-                Validator $validator
-            ) use ($ruleName) {
-                // Bail early if value is passed but null.
-                if ($value === null) {
-                    return true;
-                }
-                $validator->requireParameterCount(1, $parameters, $ruleName);
-
-                $validatorProxy = ValidatorProxy::fromValidator($validator);
-
-                if (!$validatorProxy->allFailingRequired($parameters)) {
-                    return false;
-                }
-
-                return true;
-            },
+            $this->baseRule(),
             'The use of :attribute field is prohibited when :values is present.',
             function (
                 $stringTemplate,
@@ -44,5 +26,25 @@ final class ProhibitedWith extends BaseRule
                 return Str::replaceFirst(':values', $values, $stringTemplate);
             }
         );
+    }
+
+    public function baseRule(): \Closure
+    {
+        $ruleName = $this->getImplicitRuleName();
+        return static function (string $attribute, $value, $parameters, Validator $validator) use ($ruleName) {
+            // Bail early if value is passed but null.
+            if ($value === null) {
+                return true;
+            }
+            $validator->requireParameterCount(1, $parameters, $ruleName);
+
+            $validatorProxy = ValidatorProxy::fromValidator($validator);
+
+            if (!$validatorProxy->allFailingRequired($parameters)) {
+                return false;
+            }
+
+            return true;
+        };
     }
 }

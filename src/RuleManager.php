@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator;
 
@@ -15,7 +17,10 @@ use MallardDuck\ExtendedValidator\Rules\PublicIpv6;
 
 final class RuleManager
 {
-    protected static $rules = [
+    /**
+     * @var array<string>
+     */
+    protected static array $rules = [
         HexColor::class,
         HexColorWithAlpha::class,
         PublicIp::class,
@@ -25,11 +30,17 @@ final class RuleManager
         MacAddress::class,
     ];
 
-    protected static $dependentRules = [
+    /**
+     * @var array<string>
+     */
+    protected static array $dependentRules = [
         ProhibitedWith::class,
         ProhibitedWithAll::class,
     ];
 
+    /**
+     * @return array<string>|null
+     */
     public static function allRuleNames(): array
     {
         static $allRuleNames = null;
@@ -43,6 +54,9 @@ final class RuleManager
         return $allRuleNames;
     }
 
+    /**
+     * @return array<string, array<string>>
+     */
     public static function allRules(): array
     {
         return [
