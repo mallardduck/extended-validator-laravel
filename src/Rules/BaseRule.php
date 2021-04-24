@@ -30,13 +30,6 @@ abstract class BaseRule
         $this->replacer = $replacer;
     }
 
-    protected function getImplicitRuleName(): string
-    {
-        return (string) Str::of(static::class)
-                            ->after('Rules\\')
-                            ->snake();
-    }
-
     public function getName(): string
     {
         return $this->name;
@@ -60,5 +53,12 @@ abstract class BaseRule
     public function getReplacer(): ?callable
     {
         return $this->replacer;
+    }
+
+    protected function getImplicitRuleName(): string
+    {
+        return (string) Str::of(static::class)
+            ->after('Rules\\')
+            ->snake();
     }
 }

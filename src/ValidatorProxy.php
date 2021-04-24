@@ -25,14 +25,6 @@ final class ValidatorProxy
     }
 
     /**
-     * @return array<string, string|int|float|null>
-     */
-    private function getData(): array
-    {
-        return $this->validator->getData();
-    }
-
-    /**
      * Get the value of a given attribute.
      *
      * @return string|int|float|null
@@ -40,6 +32,14 @@ final class ValidatorProxy
     protected function getValue(string $attribute)
     {
         return Arr::get($this->getData(), $attribute);
+    }
+
+    /**
+     * @return array<string, string|int|float|null>
+     */
+    private function getData(): array
+    {
+        return $this->validator->getData();
     }
 
     /**

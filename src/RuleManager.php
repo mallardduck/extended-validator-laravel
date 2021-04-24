@@ -46,9 +46,9 @@ final class RuleManager
         static $allRuleNames = null;
         if (is_null($allRuleNames)) {
             $allRuleNames = collect(self::$rules)->merge(self::$dependentRules)
-            ->map(static function ($value) {
-                return Str::snake(explode('\\', $value)[3]);
-            })->unique()->toArray();
+                ->map(static function ($value) {
+                    return Str::snake(explode('\\', $value)[3]);
+                })->unique()->toArray();
         }
 
         return $allRuleNames;
