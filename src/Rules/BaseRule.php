@@ -34,13 +34,8 @@ abstract class BaseRule
         $this->replacer = $replacer;
     }
 
-    /**
-     * @param string $className
-     *
-     * @return string
-     */
-    protected function getRuleName(string $className): string
+    protected function getRuleName(): string
     {
-        return Str::snake(explode('\\', $className)[3]);
+        return Str::of(static::class)->after('Rules\\')->snake();
     }
 }

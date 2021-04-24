@@ -6,7 +6,7 @@ final class HexColorWithAlpha extends BaseRule
 {
     public function __construct()
     {
-        $ruleName = $this->getRuleName(__CLASS__);
+        $ruleName = $this->getRuleName();
         parent::__construct(
             $ruleName,
             static function (
