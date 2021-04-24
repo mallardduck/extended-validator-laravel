@@ -14,12 +14,12 @@ abstract class BaseRule
     /**
      * @var callable
      */
-    public $callback;
+    protected $callback;
 
     /**
      * @var string
      */
-    public string $message;
+    protected string $message;
 
     /**
      * @var callable
@@ -45,5 +45,21 @@ abstract class BaseRule
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return callable
+     */
+    public function getCallback(): callable
+    {
+        return $this->callback;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage(): string
+    {
+        return $this->message;
     }
 }
