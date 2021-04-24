@@ -6,7 +6,7 @@ final class NonPublicIpv4 extends BaseRule
 {
     public function __construct()
     {
-        $ruleName = $this->getRuleName();
+        $ruleName = $this->getImplicitRuleName();
         parent::__construct(
             function (
                 string $attribute,

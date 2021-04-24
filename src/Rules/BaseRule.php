@@ -28,13 +28,13 @@ abstract class BaseRule
 
     public function __construct(callable $callback, string $message, ?callable $replacer)
     {
-        $this->name = $this->getRuleName();
+        $this->name = $this->getImplicitRuleName();
         $this->callback = $callback;
         $this->message = $message;
         $this->replacer = $replacer;
     }
 
-    protected function getRuleName(): string
+    protected function getImplicitRuleName(): string
     {
         return Str::of(static::class)->after('Rules\\')->snake();
     }

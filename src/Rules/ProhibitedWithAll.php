@@ -10,7 +10,7 @@ final class ProhibitedWithAll extends BaseRule
 {
     public function __construct()
     {
-        $ruleName = $this->getRuleName();
+        $ruleName = $this->getImplicitRuleName();
         parent::__construct(
             static function (
                 string $attribute,
