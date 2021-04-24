@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator;
 
@@ -10,7 +10,7 @@ final class ValidatorProxy
     /**
      * @var Validator
      */
-    private $validator;
+    private Validator $validator;
 
     private function __construct(Validator $validator)
     {
@@ -39,8 +39,6 @@ final class ValidatorProxy
      * Get the value of a given attribute.
      *
      * @param  string  $attribute
-     *
-     * @return mixed
      */
     protected function getValue(string $attribute)
     {

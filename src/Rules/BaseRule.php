@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
@@ -22,11 +22,11 @@ abstract class BaseRule
     protected string $message;
 
     /**
-     * @var callable
+     * @var callable|null
      */
-    public $replacer;
+    protected $replacer = null;
 
-    public function __construct(callable $callback, string $message, ?callable $replacer)
+    public function __construct(callable $callback, string $message, ?callable $replacer = null)
     {
         $this->name = $this->getImplicitRuleName();
         $this->callback = $callback;
@@ -36,30 +36,33 @@ abstract class BaseRule
 
     protected function getImplicitRuleName(): string
     {
-        return Str::of(static::class)->after('Rules\\')->snake();
+        return (string) Str::of(static::class)
+                            ->after('Rules\\')
+                            ->snake();
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return callable
-     */
     public function getCallback(): callable
     {
         return $this->callback;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return $this->message;
+    }
+
+    public function hasReplacer(): bool
+    {
+        return is_callable($this->replacer);
+    }
+
+    public function getReplacer(): ?callable
+    {
+        return $this->replacer;
     }
 }

@@ -27,7 +27,7 @@ class ExtendedValidatorTest extends BaseTest
                 /** @var BaseRule $ruleInstance */
                 $ruleInstance = new $rule();
 
-                if (! array_key_exists($ruleInstance->getName(), $tracedRules) && ! is_null($ruleInstance->replacer)) {
+                if (! array_key_exists($ruleInstance->getName(), $tracedRules) && ! is_null($ruleInstance->getReplacer())) {
                     $replacerCount++;
                     $tracedRules[$ruleInstance->getName()] = $ruleInstance->getName();
                 }

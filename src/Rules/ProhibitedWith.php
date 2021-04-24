@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
@@ -19,7 +19,7 @@ final class ProhibitedWith extends BaseRule
                 Validator $validator
             ) use ($ruleName) {
                 // Bail early if value is passed but null.
-                if (null === $value) {
+                if ($value === null) {
                     return true;
                 }
                 $validator->requireParameterCount(1, $parameters, $ruleName);

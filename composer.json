@@ -16,6 +16,7 @@
         "brianium/paratest": "^6.2",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "escapestudios/symfony2-coding-standard": "^3.11",
+        "nunomaduro/phpinsights": "dev-master",
         "orchestra/testbench": "^6.12.0",
         "php-coveralls/php-coveralls": "^2.2",
         "phpcompatibility/php-compatibility": "^9.3",

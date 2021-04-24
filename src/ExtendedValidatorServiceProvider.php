@@ -21,14 +21,14 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
             foreach ($rules as $key => $rule) {
                 /** @var BaseRule $rule */
                 $rule = new $rule();
-                if ('rules' === $ruleType) {
+                if ($ruleType === 'rules') {
                     $baseValidator->extend($rule->getName(), $rule->getCallback(), $rule->getMessage());
                 }
-                if ('dependent' === $ruleType) {
+                if ($ruleType === 'dependent') {
                     $baseValidator->extendDependent($rule->getName(), $rule->getCallback(), $rule->getMessage());
                 }
-                if (is_callable($rule->replacer)) {
-                    $baseValidator->replacer($rule->getName(), $rule->replacer);
+                if ($rule->hasReplacer()) {
+                    $baseValidator->replacer($rule->getName(), $rule->getReplacer());
                 }
             }
         }

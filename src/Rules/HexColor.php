@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
@@ -13,8 +13,7 @@ final class HexColor extends BaseRule
             ) {
                 return (bool)preg_match('/^#?(?:[0-9a-fA-F]{3}){1,2}$/', $value, $results) !== false;
             },
-            'The :attribute field must be a valid 3 or 6 character HEX color code.',
-            null
+            'The :attribute field must be a valid 3 or 6 character HEX color code.'
         );
     }
 }
