@@ -26,9 +26,9 @@ abstract class BaseRule
      */
     public $replacer;
 
-    public function __construct(string $name, callable $callback, string $message, ?callable $replacer)
+    public function __construct(callable $callback, string $message, ?callable $replacer)
     {
-        $this->name = $name;
+        $this->name = $this->getRuleName();
         $this->callback = $callback;
         $this->message = $message;
         $this->replacer = $replacer;

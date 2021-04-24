@@ -12,7 +12,6 @@ final class ProhibitedWith extends BaseRule
     {
         $ruleName = $this->getRuleName();
         parent::__construct(
-            $ruleName,
             static function (
                 string $attribute,
                 $value,
@@ -27,7 +26,7 @@ final class ProhibitedWith extends BaseRule
 
                 $validatorProxy = ValidatorProxy::fromValidator($validator);
 
-                if (! $validatorProxy->allFailingRequired($parameters)) {
+                if (!$validatorProxy->allFailingRequired($parameters)) {
                     return false;
                 }
 

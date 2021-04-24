@@ -8,7 +8,6 @@ final class MacAddress extends BaseRule
     {
         $ruleName = $this->getRuleName();
         parent::__construct(
-            $ruleName,
             static function (
                 string $attribute,
                 $value
