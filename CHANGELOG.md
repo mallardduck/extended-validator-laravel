@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2021-04-24
+### Changed
+- Removed support for php 7.4 bumped minimum to 8.0
+
+## [2.3.1] - 2021-04-24
 ## [2.3.0] - 2021-04-24
 ### Changed
 - General refactors to improve code quality and such.
@@ -46,7 +51,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0]
 ## [1.0.0]
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.0...main
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.0...main
+[3.0.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.1...3.0.0
+[2.3.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.0...2.3.1
 [2.3.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.0...2.1.1
