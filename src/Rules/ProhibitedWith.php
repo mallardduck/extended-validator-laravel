@@ -40,7 +40,7 @@ final class ProhibitedWith extends BaseRule
 
             $validatorProxy = ValidatorProxy::fromValidator($validator);
 
-            if (!$validatorProxy->allFailingRequired($parameters)) {
+            if (! $validatorProxy->allFailingRequired($parameters)) {
                 return false;
             }
 
