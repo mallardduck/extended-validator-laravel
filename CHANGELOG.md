@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0] - 2021-04-24
+### Changed
+- General refactors to improve code quality and such.
+- Remove need to set name in constructor parameters.
+
 ## [2.2.0] - 2021-04-21
 ### Added
 - A new `NonPublicIpv4` rule
@@ -41,7 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0]
 ## [1.0.0]
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/2.2.0...main
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.0...main
+[2.3.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.0.1...2.1.0
