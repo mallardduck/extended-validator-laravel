@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
-use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
-use InvalidArgumentException;
-use MallardDuck\ExtendedValidator\ValidatorProxy;
 
 final class NotInIf extends BaseRule
 {
