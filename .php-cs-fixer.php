@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 $finder = PhpCsFixer\Finder::create()
     ->notPath('vendor')
     ->in(__DIR__)
@@ -8,7 +10,8 @@ $finder = PhpCsFixer\Finder::create()
     ->ignoreVCS(true)
 ;
 
-return (new \PhpCsFixer\Config())
+$config = new \PhpCsFixer\Config();
+return $config
     ->setRules([
         '@PSR12' => true,
         //'strict_param' => true,
