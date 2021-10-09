@@ -52,6 +52,11 @@
         "phpcbf": "./vendor/bin/phpcs --standard=PSR12",
         "phpcs": "./vendor/bin/phpcs --standard=PSR12",
         "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit",
+        "test-all": [
+            "@check-style",
+            "@test",
+            "@infect"
+        ],
         "versions": "./vendor/bin/phpcs -p ./src/ ./tests/ --standard=PHPCompatibility --runtime-set testVersion 7.4"
     }
 }
