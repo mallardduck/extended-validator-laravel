@@ -59,7 +59,5 @@ return [
         // the global scope or function bodies.
         'UnreachableCodePlugin',
         'UseReturnValuePlugin',
-        'EmptyStatementListPlugin',
-        'LoopVariableReusePlugin',
     ],
 ];
