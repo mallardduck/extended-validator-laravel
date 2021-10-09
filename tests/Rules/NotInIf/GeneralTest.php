@@ -6,10 +6,10 @@ use MallardDuck\ExtendedValidator\Tests\BaseTest;
 
 class GeneralTest extends BaseTest
 {
-    public function testValidateProhibitedWithNameExample()
+    public function testValidateNotInIfExample()
     {
         $baseRules = [
-            'email' => 'not_in_if:is_prod,true,test@example.com',
+            'email' => ['not_in_if:is_prod,test@example.com,other-test@example.com'],
             'is_prod' => 'sometimes'
         ];
         $v = $this->getValidator()->make([], $baseRules);
@@ -32,6 +32,25 @@ class GeneralTest extends BaseTest
 
         $v = $this->getValidator()->make(
             [
+                'email' => 'other-test@example.com',
+                'is_prod' => true,
+            ],
+            $baseRules
+        );
+        $this->assertTrue($v->fails());
+        self::assertEquals("The selected email is invalid.", $v->messages()->messages()['email'][0]);
+
+        $v = $this->getValidator()->make(
+            [
+                'email' => 'a-working-email@example.com',
+                'is_prod' => true,
+            ],
+            $baseRules
+        );
+        $this->assertTrue($v->passes());
+
+        $v = $this->getValidator()->make(
+            [
                 'email' => 'test@example.com',
                 'is_prod' => false,
             ],
@@ -40,7 +59,7 @@ class GeneralTest extends BaseTest
         $this->assertTrue($v->passes());
     }
 
-    public function testValidateProhibitedWithNullExample()
+    public function testValidateNotInIfNullExample()
     {
         $v = $this->getValidator()->make(
             [
