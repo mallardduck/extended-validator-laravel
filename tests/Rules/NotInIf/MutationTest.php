@@ -19,7 +19,6 @@ class MutationTest extends BaseTest
         );
         $this->expectExceptionCode(0);
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage("Validation rule not_in_if requires at least 2 parameters.");
         $v->fails();
     }
 
