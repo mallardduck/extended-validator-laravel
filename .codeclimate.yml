@@ -1,3 +1,4 @@
 plugins:
   phan:
-    enabled: false
+    enabled: true
+    channel: "beta"
