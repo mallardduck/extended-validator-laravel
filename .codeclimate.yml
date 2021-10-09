@@ -1,0 +1,6 @@
+plugins:
+  phan:
+    enabled: true
+    channel: "beta"
+    config:
+      ignore-undeclared: true

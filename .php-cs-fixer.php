@@ -1,18 +1,20 @@
 <?php
 
-$finder = \Symfony\Component\Finder\Finder::create()
+$finder = PhpCsFixer\Finder::create()
     ->notPath('vendor')
     ->in(__DIR__)
-    ->name('*.php')
+    ->name("*.php")
     ->ignoreDotFiles(true)
-    ->ignoreVCS(true);
+    ->ignoreVCS(true)
+;
 
-
-return \PhpCsFixer\Config::create()
+$config = new \PhpCsFixer\Config();
+return $config
     ->setRules([
         '@PSR12' => true,
+        //'strict_param' => true,
         'array_syntax' => ['syntax' => 'short'],
-        'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'no_unused_imports' => true,
     ])
     ->setFinder($finder);

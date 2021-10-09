@@ -6,7 +6,6 @@ namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Factory;
-use MallardDuck\ExtendedValidator\Rules\BaseRule;
 
 final class ExtendedValidatorServiceProvider extends ServiceProvider
 {
@@ -15,17 +14,29 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        /** @var Factory $baseValidator */
+        /**
+         * @var Factory $baseValidator
+         */
         $baseValidator = app('validator');
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
-                /** @var BaseRule $rule */
+                /**
+                 * @var \MallardDuck\ExtendedValidator\Rules\BaseRule $rule
+                 */
                 $rule = new $rule();
                 if ($ruleType === 'rules') {
-                    $baseValidator->extend($rule->getName(), $rule->getCallback(), $rule->getMessage());
+                    $baseValidator->extend(
+                        $rule->getName(),
+                        $rule->getCallback(),
+                        $rule->getMessage()
+                    );
                 }
                 if ($ruleType === 'dependent') {
-                    $baseValidator->extendDependent($rule->getName(), $rule->getCallback(), $rule->getMessage());
+                    $baseValidator->extendDependent(
+                        $rule->getName(),
+                        $rule->getCallback(),
+                        $rule->getMessage()
+                    );
                 }
                 if ($rule->hasReplacer()) {
                     $baseValidator->replacer($rule->getName(), $rule->getReplacer());

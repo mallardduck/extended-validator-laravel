@@ -9,6 +9,8 @@ use MallardDuck\ExtendedValidator\Rules\HexColor;
 use MallardDuck\ExtendedValidator\Rules\HexColorWithAlpha;
 use MallardDuck\ExtendedValidator\Rules\MacAddress;
 use MallardDuck\ExtendedValidator\Rules\NonPublicIpv4;
+use MallardDuck\ExtendedValidator\Rules\NotInIf;
+use MallardDuck\ExtendedValidator\Rules\NotInIfValue;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWith;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWithAll;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
@@ -34,21 +36,25 @@ final class RuleManager
      * @var array<string>
      */
     protected static array $dependentRules = [
+        NotInIf::class,
+        NotInIfValue::class,
         ProhibitedWith::class,
         ProhibitedWithAll::class,
     ];
 
     /**
-     * @return array<string>|null
+     * @return array<string>
      */
     public static function allRuleNames(): array
     {
         static $allRuleNames = null;
         if (is_null($allRuleNames)) {
             $allRuleNames = collect(self::$rules)->merge(self::$dependentRules)
-                ->map(static function ($value) {
-                    return Str::snake(explode('\\', $value)[3]);
-                })->unique()->toArray();
+                ->map(
+                    static function ($value) {
+                        return Str::snake(explode('\\', $value)[3]);
+                    }
+                )->unique()->toArray();
         }
 
         return $allRuleNames;
