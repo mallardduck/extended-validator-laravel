@@ -15,6 +15,5 @@ return (new \PhpCsFixer\Config())
         'array_syntax' => ['syntax' => 'short'],
         'ordered_imports' => ['sortAlgorithm' => 'alpha'],
         'no_unused_imports' => true,
-        'lineLimit' => 120,
     ])
     ->setFinder($finder);
