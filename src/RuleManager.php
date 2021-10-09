@@ -43,7 +43,7 @@ final class RuleManager
     ];
 
     /**
-     * @return array<string>|null
+     * @return array<string>
      */
     public static function allRuleNames(): array
     {

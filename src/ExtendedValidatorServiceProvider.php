@@ -19,6 +19,7 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
          * @var Factory $baseValidator
          */
         $baseValidator = app('validator');
+        assert($baseValidator instanceof Factory);
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
                 /**
