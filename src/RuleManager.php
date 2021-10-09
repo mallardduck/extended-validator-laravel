@@ -9,6 +9,7 @@ use MallardDuck\ExtendedValidator\Rules\HexColor;
 use MallardDuck\ExtendedValidator\Rules\HexColorWithAlpha;
 use MallardDuck\ExtendedValidator\Rules\MacAddress;
 use MallardDuck\ExtendedValidator\Rules\NonPublicIpv4;
+use MallardDuck\ExtendedValidator\Rules\NotInIf;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWith;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWithAll;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
@@ -34,6 +35,7 @@ final class RuleManager
      * @var array<string>
      */
     protected static array $dependentRules = [
+        NotInIf::class,
         ProhibitedWith::class,
         ProhibitedWithAll::class,
     ];

@@ -10,7 +10,7 @@ class RuleManagerTest extends \MallardDuck\ExtendedValidator\Tests\BaseTest
     public function testBasicRuleCheck()
     {
         $allRuleNames = RuleManager::allRuleNames();
-        self::assertCount(9, $allRuleNames);
+        self::assertCount(10, $allRuleNames);
     }
 
     public function testRuleNamesOutputMatchesAllRules()
