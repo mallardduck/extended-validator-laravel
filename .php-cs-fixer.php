@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-
 $finder = PhpCsFixer\Finder::create()
     ->notPath('vendor')
     ->in(__DIR__)
