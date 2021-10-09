@@ -6,7 +6,6 @@ namespace MallardDuck\ExtendedValidator;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Factory;
-use MallardDuck\ExtendedValidator\Rules\BaseRule;
 
 final class ExtendedValidatorServiceProvider extends ServiceProvider
 {
@@ -23,7 +22,7 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
                 /**
-                 * @var BaseRule $rule
+                 * @var \MallardDuck\ExtendedValidator\Rules\BaseRule $rule
                  */
                 $rule = new $rule();
                 if ($ruleType === 'rules') {

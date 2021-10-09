@@ -61,8 +61,5 @@ return [
         'UseReturnValuePlugin',
         'EmptyStatementListPlugin',
         'LoopVariableReusePlugin',
-        // My Plugins
-        'vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',
-        'vendor/drenso/phan-extensions/Plugin/DocComment/MethodPlugin.php',
     ],
 ];
