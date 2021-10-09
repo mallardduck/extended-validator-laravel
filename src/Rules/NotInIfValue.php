@@ -19,7 +19,12 @@ final class NotInIfValue extends BaseRule
     public function getRuleClosure(): \Closure
     {
         $ruleName = $this->getImplicitRuleName();
-        return static function (string $attribute, $value, $parameters, Validator $validator) use ($ruleName) {
+        return static function (
+            string $attribute,
+            $value,
+            $parameters,
+            Validator $validator
+        ) use ($ruleName) {
             $validator->requireParameterCount(3, $parameters, $ruleName);
 
             // First prepare the value of $other, then shift the array to get the check value.

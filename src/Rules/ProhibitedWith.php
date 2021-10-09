@@ -31,7 +31,12 @@ final class ProhibitedWith extends BaseRule
     public function baseRule(): \Closure
     {
         $ruleName = $this->getImplicitRuleName();
-        return static function (string $attribute, $value, $parameters, Validator $validator) use ($ruleName) {
+        return static function (
+            string $attribute,
+            $value,
+            $parameters,
+            Validator $validator
+        ) use ($ruleName) {
             // Bail early if value is passed but null.
             if ($value === null) {
                 return true;
