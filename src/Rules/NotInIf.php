@@ -11,49 +11,26 @@ use MallardDuck\ExtendedValidator\ValidatorProxy;
 
 final class NotInIf extends BaseRule
 {
-    /**
-     * The condition that validates the attribute.
-     *
-     * @var callable|bool
-     */
-    public $condition;
-
-    /**
-     * @param  callable|bool  $condition
-     * @return void
-     */
-    public function __construct($condition)
+    public function __construct()
     {
-        if (! is_string($condition)) {
-            $this->condition = $condition;
-        } else {
-            throw new InvalidArgumentException('The provided condition must be a callable or boolean.');
-        }
-
         parent::__construct(
-            $this->baseRule(),
-            'TODO',
-            function (
-                $message,
-                $attribute,
-                $rule,
-                $parameters,
-                $validator
-            ) {
-                dd(
-                    $message,
-                    $attribute,
-                    $rule,
-                    $parameters,
-                    $validator
-                );
-            }
+            $this->getRuleClosure(),
+            __('validation.not_in')
         );
     }
 
-    public function baseRule(): \Closure
+    public function getRuleClosure(): \Closure
     {
-        // TODO
-        return [$this, __METHOD__];
+        $ruleName = $this->getImplicitRuleName();
+        return static function (string $attribute, $value, $parameters, Validator $validator) use ($ruleName) {
+            $validator->requireParameterCount(2, $parameters, $ruleName);
+
+            [$values, $other] = $validator->parseDependentRuleParameters($parameters);
+            if ($other) {
+                return ! in_array($value, $values);
+            }
+
+            return true;
+        };
     }
 }
