@@ -15,11 +15,15 @@ final class ExtendedValidatorServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        /** @var Factory $baseValidator */
+        /**
+         * @var Factory $baseValidator
+         */
         $baseValidator = app('validator');
         foreach (RuleManager::allRules() as $ruleType => $rules) {
             foreach ($rules as $key => $rule) {
-                /** @var BaseRule $rule */
+                /**
+                 * @var BaseRule $rule
+                 */
                 $rule = new $rule();
                 if ($ruleType === 'rules') {
                     $baseValidator->extend($rule->getName(), $rule->getCallback(), $rule->getMessage());

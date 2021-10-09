@@ -22,12 +22,11 @@ final class NonPublicIpv4 extends BaseRule
                 return false;
             }
 
-            if (
-                filter_var(
-                    $value,
-                    FILTER_VALIDATE_IP,
-                    FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE
-                ) === false
+            if (filter_var(
+                $value,
+                FILTER_VALIDATE_IP,
+                FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE
+            ) === false
             ) {
                 return true;
             }
