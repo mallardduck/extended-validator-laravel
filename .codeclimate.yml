@@ -2,4 +2,5 @@ plugins:
   phan:
     enabled: true
     channel: "beta"
-    ignore-undeclared: true
+    config:
+      ignore-undeclared: true
