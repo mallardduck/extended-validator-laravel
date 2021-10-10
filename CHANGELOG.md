@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2021-10-09
+### Added
+- New `NotInIf` & `NotInIfValue` rules.
+
+### Changed
+- Update docs for release
+- Deprecates the use of `ProhibitedWith` rule, use `prohibits` built-in instead.
+
 ## [3.0.3] - 2021-10-09
 ## [3.0.2] - 2021-04-24
 ### Changed
@@ -54,8 +62,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0]
 ## [1.0.0]
 
-[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.3...main
-[3.0.2]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.2...3.0.3
+[Unreleased]: https://github.com/mallardduck/extended-validator-laravel/compare/3.1.0...main
+[3.1.0]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.3...3.1.0
+[3.0.3]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.2...3.0.3
 [3.0.2]: https://github.com/mallardduck/extended-validator-laravel/compare/3.0.0...3.0.2
 [3.0.0]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.1...3.0.0
 [2.3.1]: https://github.com/mallardduck/extended-validator-laravel/compare/2.3.0...2.3.1

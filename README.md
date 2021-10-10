@@ -30,6 +30,8 @@ All the new rules will be automatically registered for use without any configura
 * [`PublicIp`](#publicip)
 * [`PublicIpv4`](#publicipv4)
 * [`NonPublicIpv4`](#nonpublicipv4)
+* [`NotInIf`](#notinif)
+* [`NotInIfValue`](#notinifvalue)
 * [`PublicIpv6`](#publicipv6)
 * [`ProhibitedIf`](#prohibitedif)
 * [`ProhibitedWith`](#prohibitedwith)
@@ -62,6 +64,30 @@ Just like Laravel's `ipv4` rule, but IPs should only be within private or reserv
 ```
 $rules = [
     'ip' => 'required|non_public_ipv4',
+];
+```
+
+### `NotInIf`
+#### `not_in_if:anotherfield,value,...`
+The field under validation must not be included in the given list of values only when the given fieled is truthy.  
+Think of this as a conditional version of [`not_in`](https://laravel.com/docs/8.x/validation#rule-not-in) rule.
+
+```
+$rules = [
+    'size' => ['sometimes', 'not_in_if_value:is_square,large,super', 'in:small,medium,large,super',],
+    'is_square' => ['required', 'boolean'],
+];
+```
+
+### `NotInIfValue`
+#### `not_in_if_value:anotherfield,anotherfield_value,value,...`
+The field under validation must not be included in the given list of values only when the value of the `anotherfield` field is equal to `anotherfield_value`.  
+Think of this as a conditional version of [`not_in`](https://laravel.com/docs/8.x/validation#rule-not-in) rule.
+
+```
+$rules = [
+    'size' => ['sometimes', 'not_in_if_value:shape,square,large,super', 'in:small,medium,large,super',],
+    'shape' => ['required', 'in:square,rectangle'],
 ];
 ```
 
