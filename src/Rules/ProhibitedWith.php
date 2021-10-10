@@ -6,8 +6,13 @@ namespace MallardDuck\ExtendedValidator\Rules;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
+use JetBrains\PhpStorm\Deprecated;
 use MallardDuck\ExtendedValidator\ValidatorProxy;
 
+/**
+ * @deprecated Deprecated since 3.1.0, use Laravel's built-in `prohibits:anotherfield,...` rule instead.
+ */
+#[Deprecated(reason: 'since 3.1.0, use Laravel\'s built-in `prohibits:anotherfield,...` rule instead.')]
 final class ProhibitedWith extends BaseRule
 {
     public function __construct()
