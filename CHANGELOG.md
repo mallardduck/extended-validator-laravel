@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2022-02-28
+### Added
+- Support for laravel 9
+
+
 ## [3.1.0] - 2021-10-09
 ### Added
 - New `NotInIf` & `NotInIfValue` rules.
