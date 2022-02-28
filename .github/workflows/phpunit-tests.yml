@@ -11,9 +11,15 @@ jobs:
       matrix:
         php: ["8.0", "8.1"]
         dependency-version: ["prefer-lowest", "prefer-stable"]
+        laravel: [9.*, 8.*]
         os: ["ubuntu-latest", "windows-latest"]
+        include:
+          - laravel: 9.*
+            testbench: ^7.0
+          - laravel: 8.*
+            testbench: ^6.24
 
-    name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code
@@ -40,7 +46,9 @@ jobs:
           coverage: xdebug
 
       - name: Install dependencies
-        run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
         run: |
@@ -59,7 +67,7 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_PARALLEL: true
-          COVERALLS_FLAG_NAME: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}
+          COVERALLS_FLAG_NAME: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}-${{ matrix.laravel }}
         run: |
           composer global require php-coveralls/php-coveralls
           php-coveralls --coverage_clover=build/logs/clover.xml -v
@@ -70,7 +78,7 @@ jobs:
         with:
           files: ./build/logs/clover.xml # optional
           flags: unittests # optional
-          name: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}
+          name: run-${{ matrix.os }}-${{ matrix.php }}-${{ matrix.dependency-version }}-${{ matrix.laravel }}
 
   finish:
     needs: tests
