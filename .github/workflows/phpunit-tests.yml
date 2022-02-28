@@ -33,9 +33,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-php-${{ matrix.php }}-composer-L${{ matrix.laravel }}-${{ hashFiles('composer.json') }}
           restore-keys: |
-            dependencies-php-${{ matrix.php }}-composer-
+            dependencies-php-${{ matrix.php }}-composer-L${{ matrix.laravel }}
             dependencies-php-
 
       - name: Setup PHP
@@ -47,6 +47,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
