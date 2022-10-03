@@ -11,7 +11,6 @@ use MallardDuck\ExtendedValidator\Rules\MacAddress;
 use MallardDuck\ExtendedValidator\Rules\NonPublicIpv4;
 use MallardDuck\ExtendedValidator\Rules\NotInIf;
 use MallardDuck\ExtendedValidator\Rules\NotInIfValue;
-use MallardDuck\ExtendedValidator\Rules\ProhibitedWith;
 use MallardDuck\ExtendedValidator\Rules\ProhibitedWithAll;
 use MallardDuck\ExtendedValidator\Rules\PublicIp;
 use MallardDuck\ExtendedValidator\Rules\PublicIpv4;
@@ -38,7 +37,6 @@ final class RuleManager
     protected static array $dependentRules = [
         NotInIf::class,
         NotInIfValue::class,
-        ProhibitedWith::class,
         ProhibitedWithAll::class,
     ];
 
