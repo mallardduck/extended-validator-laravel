@@ -1,4 +1,4 @@
-name: PHPunit Tests
+name: PHPunit Tests for PHP 8.0
 
 on: ["push", "pull_request"]
 
