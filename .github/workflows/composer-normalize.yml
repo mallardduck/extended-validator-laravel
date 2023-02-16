@@ -20,7 +20,7 @@ jobs:
       - name: Normalize composer.json
         uses: "docker://ergebnis/composer-normalize-action:latest"
         with:
-          args: "--indent-style=space --indent-size=4 --no-check-lock --no-update-lock --no-interaction --ansi"
+          args: "--indent-style=space --indent-size=4 --no-update-lock --ansi"
 
       - name: Update composer.json
         uses: stefanzweifel/git-auto-commit-action@v4.0.0

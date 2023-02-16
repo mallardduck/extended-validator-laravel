@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb4d8ade6d053fdebe6378a44c147ad9",
+    "content-hash": "0466411f4333281a81e540e0cb2159f9",
     "packages": [
         {
             "name": "brick/math",
@@ -6340,7 +6340,7 @@
         },
         {
             "name": "nunomaduro/phpinsights",
-            "version": "dev-master",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/phpinsights.git",
@@ -6389,7 +6389,6 @@
             "suggest": {
                 "ext-simplexml": "It is needed for the checkstyle formatter"
             },
-            "default-branch": true,
             "bin": [
                 "bin/phpinsights"
             ],
@@ -10703,9 +10702,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nunomaduro/phpinsights": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
