@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "composer.json"
+      - "composer.lock"
 
 jobs:
   normalize:
@@ -20,6 +21,8 @@ jobs:
         uses: "docker://ergebnis/composer-normalize-action:latest"
         with:
           args: "--indent-style=space --indent-size=4 --no-check-lock --no-update-lock --no-interaction --ansi"
-      - uses: stefanzweifel/git-auto-commit-action@v4.0.0
+
+      - name: Update composer.json
+        uses: stefanzweifel/git-auto-commit-action@v4.0.0
         with:
           commit_message: normalize composer.json
