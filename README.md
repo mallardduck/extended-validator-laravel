@@ -113,25 +113,6 @@ This package will require that version moving forward so the rule will be there.
 
 For more info, see: https://laravel.com/docs/9.x/validation#rule-prohibits
 
-Our rule was essentially the opposite of Laravel's `required_with`.
-
-```
-$rules = [
-    'name' => 'sometimes',
-    'first_name' => 'prohibited_with:name',
-    'last_name' => 'prohibited_with:name'
-];
-```
-
-However, with the native Laravel `prohibits` it might make more sense to do:
-```
-$rules = [
-    'name' => 'sometimes,prohibits:first_name,last_name',
-    'first_name' => 'sometimes',
-    'last_name' => 'sometimes'
-];
-```
-
 ### `ProhibitedWithAll`
 Use of the field under validation is prohibited only if all the other specified fields are present.  
 Think of it as the opposite of Laravel's `required_with_all`.
