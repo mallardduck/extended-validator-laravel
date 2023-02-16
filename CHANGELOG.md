@@ -6,8 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+# [4.0.1] - 2023-02-16
+## Updated
+- Laravel 10 support
+
 # [4.0.0] - 2022-10-03
-### Removed the deprecated `ProhibitedWith`, use `prohibits` built-in instead.
+### Removed
+- The deprecated `ProhibitedWith`, use `prohibits` built-in instead.
 
 ## [3.2.0] - 2022-02-28
 ### Added
