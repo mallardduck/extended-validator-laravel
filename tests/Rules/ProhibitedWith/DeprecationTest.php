@@ -93,6 +93,11 @@ class DeprecationTest extends BaseTest
                 'last_name' => ['sometimes', 'prohibits:name'],
             ]
         );
-        $this->assertTrue($v->fails());
+        // As of Laravel 9.x this should pass.
+        if (str_starts_with(app()->version(), '8')) {
+            $this->assertTrue($v->fails());
+        } else {
+            $this->assertTrue($v->passes());
+        }
     }
 }
