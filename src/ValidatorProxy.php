@@ -25,7 +25,7 @@ final class ValidatorProxy
     }
 
     /**
-     * Determine if all of the given attributes pass the required test.
+     * Determine if all the given attributes pass the required test.
      *
      * @param array<string> $attributes
      */

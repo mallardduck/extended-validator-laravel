@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
+use Closure;
+
 final class NonPublicIpv4 extends BaseRule
 {
     public function __construct()
@@ -14,7 +16,7 @@ final class NonPublicIpv4 extends BaseRule
         );
     }
 
-    public function getRuleClosure()
+    public function getRuleClosure(): Closure
     {
         return static function (string $attribute, $value) {
             // Eager return as false for anything that's just flat out not an IP.

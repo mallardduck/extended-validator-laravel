@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
+use Closure;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 use MallardDuck\ExtendedValidator\ValidatorProxy;
@@ -19,7 +20,7 @@ final class ProhibitedWithAll extends BaseRule
         );
     }
 
-    public function getRuleClosure(): \Closure
+    public function getRuleClosure(): Closure
     {
         $ruleName = $this->getImplicitRuleName();
         return static function (
@@ -43,7 +44,7 @@ final class ProhibitedWithAll extends BaseRule
         };
     }
 
-    public function getReplacerClosure(): \Closure
+    public function getReplacerClosure(): Closure
     {
         return static function (
             $stringTemplate,

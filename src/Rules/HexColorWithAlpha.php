@@ -16,7 +16,6 @@ final class HexColorWithAlpha extends BaseRule
                 return (bool) preg_match(
                     '/^#?(?:[0-9a-fA-F]{2})(?:[0-9a-fA-F]{3}){1,2}$/',
                     $value,
-                    $results
                 ) !== false;
             },
             // phpcs:ignore

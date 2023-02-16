@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator\Rules;
 
+use Closure;
 use Illuminate\Validation\Validator;
 
 final class NotInIf extends BaseRule
@@ -16,7 +17,7 @@ final class NotInIf extends BaseRule
         );
     }
 
-    public function getRuleClosure(): \Closure
+    public function getRuleClosure(): Closure
     {
         $ruleName = $this->getImplicitRuleName();
         return static function (
