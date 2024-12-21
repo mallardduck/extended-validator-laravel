@@ -9,8 +9,9 @@ class RuleManagerTest extends \MallardDuck\ExtendedValidator\Tests\BaseTest
 {
     public function testBasicRuleCheck()
     {
+        $count = RuleManager::shouldIncludeHexColor() ? 10 : 9;
         $allRuleNames = RuleManager::allRuleNames();
-        self::assertCount(10, $allRuleNames);
+        self::assertCount($count, $allRuleNames);
     }
 
     public function testRuleNamesOutputMatchesAllRules()

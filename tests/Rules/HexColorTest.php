@@ -19,12 +19,7 @@ class HexColorTest extends BaseTest
         $this->assertTrue($v->passes());
 
         $v = $this->getValidator()->make([
-            'background' => '#3333', // INVALID: Codes must be 3 or 6 characters.
-        ], $basicUnfilledRules);
-        $this->assertTrue($v->fails());
-
-        $v = $this->getValidator()->make([
-            'background' => '333666',
+            'background' => '#333666',
             'foreground' => '#000',
         ], $basicUnfilledRules);
         $this->assertTrue($v->passes());
@@ -37,7 +32,7 @@ class HexColorTest extends BaseTest
 
         $v = $this->getValidator()->make([
             'background' => '#424242',
-            'foreground' => '420',
+            'foreground' => '#420',
         ], $basicUnfilledRules);
         $this->assertTrue($v->passes());
 
