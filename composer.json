@@ -10,6 +10,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "composer/semver": "^3.4",
         "illuminate/validation": "^10.0 || ^11.0"
     },
     "require-dev": {
