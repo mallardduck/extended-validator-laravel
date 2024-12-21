@@ -2,9 +2,9 @@
 
 namespace MallardDuck\ExtendedValidator\Tests\Rules\NotInIfValue;
 
-use MallardDuck\ExtendedValidator\Tests\BaseTest;
+use MallardDuck\ExtendedValidator\Tests\BaseTestCase;
 
-class MutationTest extends BaseTest
+class MutationTest extends BaseTestCase
 {
     public function testExceptionNotInIfValueExpectsMoreThanZeroParameters()
     {

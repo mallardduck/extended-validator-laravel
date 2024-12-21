@@ -7,7 +7,8 @@ use MallardDuck\ExtendedValidator\ExtendedValidatorServiceProvider;
 use Orchestra\Testbench\TestCase;
 use ReflectionObject;
 
-abstract class BaseTest extends TestCase
+
+abstract class BaseTestCase extends TestCase
 {
     public function setUp(): void
     {

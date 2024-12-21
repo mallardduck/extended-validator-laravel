@@ -2,9 +2,9 @@
 
 namespace MallardDuck\ExtendedValidator\Tests\Rules;
 
-use MallardDuck\ExtendedValidator\Tests\BaseTest;
+use MallardDuck\ExtendedValidator\Tests\BaseTestCase;
 
-class HexColorTest extends BaseTest
+class HexColorTest extends BaseTestCase
 {
     public function testValidateHexColorExample()
     {
