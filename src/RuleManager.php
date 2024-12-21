@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MallardDuck\ExtendedValidator;
 
+use Composer\Semver\Comparator;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
 use MallardDuck\ExtendedValidator\Rules\HexColor;
 use MallardDuck\ExtendedValidator\Rules\HexColorWithAlpha;
@@ -22,7 +24,6 @@ final class RuleManager
      * @var array<string>
      */
     protected static array $rules = [
-        HexColor::class,
         HexColorWithAlpha::class,
         PublicIp::class,
         PublicIpv4::class,
@@ -40,14 +41,25 @@ final class RuleManager
         ProhibitedWithAll::class,
     ];
 
+    public static function shouldIncludeHexColor(): bool
+    {
+        $laravelVersion = Application::VERSION;
+        return Comparator::lessThan($laravelVersion, "10.33.0");
+    }
+
     /**
      * @return array<string>
      */
     public static function allRuleNames(): array
     {
+        $rules = self::$rules;
+        if (self::shouldIncludeHexColor()) {
+            $rules[] = HexColor::class;
+        }
+
         static $allRuleNames = null;
         if (is_null($allRuleNames)) {
-            $allRuleNames = collect(self::$rules)->merge(self::$dependentRules)
+            $allRuleNames = collect($rules)->merge(self::$dependentRules)
                 ->map(
                     static function ($value) {
                         return Str::snake(explode('\\', $value)[3]);
@@ -63,8 +75,12 @@ final class RuleManager
      */
     public static function allRules(): array
     {
+        $rules = self::$rules;
+        if (self::shouldIncludeHexColor()) {
+            $rules[] = HexColor::class;
+        }
         return [
-            'rules' => self::$rules,
+            'rules' => $rules,
             'dependent' => self::$dependentRules,
         ];
     }

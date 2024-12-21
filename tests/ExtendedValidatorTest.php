@@ -5,7 +5,7 @@ namespace MallardDuck\ExtendedValidator\Tests;
 use MallardDuck\ExtendedValidator\RuleManager;
 use MallardDuck\ExtendedValidator\Rules\BaseRule;
 
-class ExtendedValidatorTest extends BaseTest
+class ExtendedValidatorTest extends BaseTestCase
 {
     public function testValidatorHasBeenExtended()
     {

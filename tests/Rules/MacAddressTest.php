@@ -2,9 +2,9 @@
 
 namespace MallardDuck\ExtendedValidator\Tests\Rules;
 
-use MallardDuck\ExtendedValidator\Tests\BaseTest;
+use MallardDuck\ExtendedValidator\Tests\BaseTestCase;
 
-class MacAddressTest extends BaseTest
+class MacAddressTest extends BaseTestCase
 {
     public function testValidateMacAddressExample()
     {

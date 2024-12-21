@@ -5,12 +5,13 @@ namespace MallardDuck\ExtendedValidator\Tests;
 use Illuminate\Support\Str;
 use MallardDuck\ExtendedValidator\RuleManager;
 
-class RuleManagerTest extends \MallardDuck\ExtendedValidator\Tests\BaseTest
+class RuleManagerTest extends BaseTestCase
 {
     public function testBasicRuleCheck()
     {
+        $count = RuleManager::shouldIncludeHexColor() ? 10 : 9;
         $allRuleNames = RuleManager::allRuleNames();
-        self::assertCount(10, $allRuleNames);
+        self::assertCount($count, $allRuleNames);
     }
 
     public function testRuleNamesOutputMatchesAllRules()
