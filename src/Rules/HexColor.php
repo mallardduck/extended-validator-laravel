@@ -13,9 +13,6 @@ final class HexColor extends BaseRule
                 string $attribute,
                 $value
             ) {
-                dd(
-                    $value
-                );
                 return (bool) preg_match(
                     '/^#?(?:[0-9a-fA-F]{3}){1,2}$/',
                     $value,
